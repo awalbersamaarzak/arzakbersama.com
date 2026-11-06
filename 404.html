@@ -7,17 +7,18 @@
 <meta name="robots" content="noindex">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <style>
-@font-face { font-family: "Plus Jakarta Sans"; src: url("/plus-jakarta-sans.woff2") format("woff2"); font-weight: 200 800; font-display: swap; }
-:root { --navy:#0B2A30; --teal-2:#2BB6AE; --gold:#C9A24B; --on:#EAF2F1; --muted:#9FBABA; }
-* { box-sizing: border-box; }
-body { margin:0; min-height:100vh; display:grid; place-items:center; background:var(--navy); color:var(--on);
-  font-family:"Plus Jakarta Sans", system-ui, sans-serif; padding:1.5rem; }
+@font-face { font-family:"Plus Jakarta Sans"; src:url("/plus-jakarta-sans.woff2") format("woff2"); font-weight:200 800; font-display:swap; }
+:root { --wine:#2A0B12; --gold:#C9A24B; --on:#F7EFE7; --muted:#CDB7B0; }
+* { box-sizing:border-box; }
+body { margin:0; min-height:100vh; display:grid; place-items:center; color:var(--on); padding:1.5rem;
+  font-family:"Plus Jakarta Sans", system-ui, sans-serif;
+  background: radial-gradient(110% 80% at 85% 0%, rgba(201,162,75,.22) 0%, rgba(201,162,75,0) 55%), linear-gradient(160deg, #6E1E2B 0%, var(--wine) 70%); }
 main { max-width:32rem; }
-svg { width:3.5rem; height:auto; display:block; margin-bottom:2rem; }
+svg { width:4rem; height:auto; display:block; margin-bottom:2rem; }
 h1 { font-size:clamp(1.75rem,5vw,2.5rem); line-height:1.15; letter-spacing:-.02em; margin:0 0 1rem; }
-p { color:var(--muted); line-height:1.6; margin:0 0 1.5rem; }
-a { color:var(--on); font-weight:600; text-underline-offset:3px; }
-a:focus-visible { outline:2px solid var(--teal-2); outline-offset:3px; }
+p { color:var(--muted); line-height:1.6; margin:0 0 1.75rem; }
+a { display:inline-block; background:var(--gold); color:var(--wine); font-weight:700; text-decoration:none; padding:.8rem 1.3rem; border-radius:999px; }
+a:focus-visible { outline:2px solid var(--on); outline-offset:3px; }
 </style>
 </head>
 <body>
@@ -37,7 +38,7 @@ a:focus-visible { outline:2px solid var(--teal-2); outline-offset:3px; }
   </mask>
 </defs>
 <g clip-path="url(#nf-base)">
-  <path d="M 16 116 L 64 26 L 112 116" stroke="#EAF2F1" stroke-width="17" fill="none" stroke-linejoin="miter" stroke-miterlimit="6" mask="url(#nf-ma)"/>
+  <path d="M 16 116 L 64 26 L 112 116" stroke="#F7F1EA" stroke-width="17" fill="none" stroke-linejoin="miter" stroke-miterlimit="6" mask="url(#nf-ma)"/>
   <path d="M 0 116 C 26 44, 102 44, 128 116" stroke="#C9A24B" stroke-width="11" fill="none" mask="url(#nf-mr)"/>
 </g>
 </svg>

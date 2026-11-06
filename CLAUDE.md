@@ -4,18 +4,19 @@
 
 ### Konteks repo
 - Fungsi repo: situs profil perusahaan induk ARZAK di arzakbersama.com. Satu halaman statis (HTML + CSS dalam satu file), ditayangkan lewat GitHub Pages dari branch `main`, tanpa build.
-- Pemilik situs: ARZAK — PT Mulai Bersama Arzak, dalam persiapan pendirian.
+- Pemilik situs: ARZAK — PT Arzak Selalu Bersama, dalam persiapan pendirian (nama sebelumnya: PT Mulai Bersama Arzak).
 - Perintah tes: tidak ada runner tes. Verifikasi = buka `index.html` di browser pada lebar 390 px dan 1440 px, pastikan tidak ada scroll horizontal, dan periksa `404.html`.
 - Penyetuju perubahan: Owner.
 
 ### Aturan
 1. **Data.** Jangan pernah menaruh data pasien atau staf, ekspor sistem klinik, angka keuangan, maupun kredensial (`.env`, token, kunci) di repo ini. Repo ini publik.
-2. **Status badan hukum.** Selama akta dan SK Kemenkumham belum terbit, nama "PT Mulai Bersama Arzak" hanya boleh tampil dengan keterangan "dalam persiapan pendirian". Brand yang tampil di halaman adalah ARZAK.
+2. **Status badan hukum.** Selama akta dan SK Kemenkumham belum terbit, nama "PT Arzak Selalu Bersama" hanya boleh tampil dengan keterangan "dalam persiapan pendirian". Brand yang tampil di halaman adalah ARZAK.
 3. **Klinik.** Jangan menulis bahwa klinik dimiliki atau dinaungi holding sebelum Owner memutus peralihannya. Kliniknya disebut "Klinik Utama INTRO Dental". Jangan pernah menyebut PT klinik "PT INTRO". Nama PT anak usaha yang belum final tidak ditampilkan.
 4. **Kepemilikan dan investasi.** Pertahankan kalimat bahwa ARZAK tidak menawarkan saham dan tidak menghimpun dana dari masyarakat. Jangan menambahkan angka keuangan, target pendapatan, atau janji imbal hasil.
 5. **Kontak dan alamat.** Jangan menambahkan alamat rumah, nomor pribadi, atau email pribadi. Email hanya memakai domain arzakbersama.com setelah Owner menyetujuinya.
 6. **Jangan hapus `CNAME`.** File itu menghubungkan GitHub Pages dengan domain arzakbersama.com.
-7. **Bahasa.** Jelaskan rencana, temuan, dan hasil kepada Owner dalam Bahasa Indonesia. Kode, nama variabel, dan pesan commit boleh dalam bahasa Inggris.
+7. **Foto.** Jangan pakai foto orang yang wajahnya bisa dikenali, dan jangan memakai foto pasien atau staf. Setiap foto baru dicantumkan sumber dan lisensinya di footer, lalu ditambahkan ke `.github/workflows/foto.yml` supaya diunduh, dikecilkan, dan dibersihkan metadatanya.
+8. **Bahasa.** Jelaskan rencana, temuan, dan hasil kepada Owner dalam Bahasa Indonesia. Kode, nama variabel, dan pesan commit boleh dalam bahasa Inggris.
 
 ## B. Karpathy-Inspired Guidelines
 <!-- Sumber: github.com/multica-ai/andrej-karpathy-skills, commit 2c60614, lisensi MIT. Jangan diubah; perbarui hanya dari sumber. -->
