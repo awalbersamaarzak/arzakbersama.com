@@ -13,7 +13,7 @@
   </mask>
 </defs>
 <g clip-path="url(#b-base)">
-  <path d="M 16 116 L 64 26 L 112 116" stroke="#EAF2F1" stroke-width="17" fill="none" stroke-linejoin="miter" stroke-miterlimit="6" mask="url(#b-ma)"/>
+  <path d="M 16 116 L 64 26 L 112 116" stroke="#F7F1EA" stroke-width="17" fill="none" stroke-linejoin="miter" stroke-miterlimit="6" mask="url(#b-ma)"/>
   <path d="M 0 116 C 26 44, 102 44, 128 116" stroke="#C9A24B" stroke-width="11" fill="none" mask="url(#b-mr)"/>
 </g>
 </svg>
