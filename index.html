@@ -131,7 +131,7 @@ a:focus-visible, button:focus-visible {
   letter-spacing: .02em;
   font-size: 1.0625rem;
 }
-.brand svg { width: 1.75rem; height: 1.75rem; display: block; }
+.brand svg { width: 2.1rem; height: auto; display: block; }
 
 .nav {
   display: flex;
@@ -421,10 +421,25 @@ footer {
   <div class="wrap">
     <header class="top">
       <a class="brand" href="/" aria-label="ARZAK, beranda">
-        <svg viewBox="0 0 64 64" aria-hidden="true">
-          <path d="M17 49 L32 15" stroke="#2BB6AE" stroke-width="7" stroke-linecap="round" fill="none"/>
-          <path d="M32 15 L47 49" stroke="#C9A24B" stroke-width="7" stroke-linecap="round" fill="none"/>
-        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" viewBox="0 0 128 112">
+<defs>
+  <clipPath id="hd-base"><rect x="-10" y="0" width="148" height="100"/></clipPath>
+  <clipPath id="hd-left"><rect x="-10" y="0" width="74" height="120"/></clipPath>
+  <clipPath id="hd-right"><rect x="64" y="0" width="74" height="120"/></clipPath>
+  <mask id="hd-ma" maskUnits="userSpaceOnUse" x="-10" y="-10" width="148" height="140">
+    <rect x="-10" y="-10" width="148" height="140" fill="#fff"/>
+    <path d="M 0 116 C 26 44, 102 44, 128 116" stroke="#000" stroke-width="20" fill="none" clip-path="url(#hd-left)"/>
+  </mask>
+  <mask id="hd-mr" maskUnits="userSpaceOnUse" x="-10" y="-10" width="148" height="140">
+    <rect x="-10" y="-10" width="148" height="140" fill="#fff"/>
+    <path d="M 16 116 L 64 26 L 112 116" stroke="#000" stroke-width="25" fill="none" stroke-linejoin="miter" clip-path="url(#hd-right)"/>
+  </mask>
+</defs>
+<g clip-path="url(#hd-base)">
+  <path d="M 16 116 L 64 26 L 112 116" stroke="#EAF2F1" stroke-width="17" fill="none" stroke-linejoin="miter" stroke-miterlimit="6" mask="url(#hd-ma)"/>
+  <path d="M 0 116 C 26 44, 102 44, 128 116" stroke="#C9A24B" stroke-width="11" fill="none" mask="url(#hd-mr)"/>
+</g>
+</svg>
         ARZAK
       </a>
       <nav class="nav" aria-label="Bagian halaman">
@@ -590,10 +605,25 @@ footer {
     <div class="foot">
       <div>
         <span class="brand" aria-hidden="true">
-          <svg viewBox="0 0 64 64">
-            <path d="M17 49 L32 15" stroke="#2BB6AE" stroke-width="7" stroke-linecap="round" fill="none"/>
-            <path d="M32 15 L47 49" stroke="#C9A24B" stroke-width="7" stroke-linecap="round" fill="none"/>
-          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" viewBox="0 0 128 112">
+<defs>
+  <clipPath id="ft-base"><rect x="-10" y="0" width="148" height="100"/></clipPath>
+  <clipPath id="ft-left"><rect x="-10" y="0" width="74" height="120"/></clipPath>
+  <clipPath id="ft-right"><rect x="64" y="0" width="74" height="120"/></clipPath>
+  <mask id="ft-ma" maskUnits="userSpaceOnUse" x="-10" y="-10" width="148" height="140">
+    <rect x="-10" y="-10" width="148" height="140" fill="#fff"/>
+    <path d="M 0 116 C 26 44, 102 44, 128 116" stroke="#000" stroke-width="20" fill="none" clip-path="url(#ft-left)"/>
+  </mask>
+  <mask id="ft-mr" maskUnits="userSpaceOnUse" x="-10" y="-10" width="148" height="140">
+    <rect x="-10" y="-10" width="148" height="140" fill="#fff"/>
+    <path d="M 16 116 L 64 26 L 112 116" stroke="#000" stroke-width="25" fill="none" stroke-linejoin="miter" clip-path="url(#ft-right)"/>
+  </mask>
+</defs>
+<g clip-path="url(#ft-base)">
+  <path d="M 16 116 L 64 26 L 112 116" stroke="#EAF2F1" stroke-width="17" fill="none" stroke-linejoin="miter" stroke-miterlimit="6" mask="url(#ft-ma)"/>
+  <path d="M 0 116 C 26 44, 102 44, 128 116" stroke="#C9A24B" stroke-width="11" fill="none" mask="url(#ft-mr)"/>
+</g>
+</svg>
           ARZAK
         </span>
         <p>PT Mulai Bersama Arzak, dalam persiapan pendirian.</p>

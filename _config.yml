@@ -1,0 +1,4 @@
+# GitHub Pages: file berikut tidak ikut ditayangkan di arzakbersama.com
+exclude:
+  - CLAUDE.md
+  - README.md
