@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 112">
+<defs>
+  <clipPath id="a-base"><rect x="-10" y="0" width="148" height="100"/></clipPath>
+  <clipPath id="a-left"><rect x="-10" y="0" width="74" height="120"/></clipPath>
+  <clipPath id="a-right"><rect x="64" y="0" width="74" height="120"/></clipPath>
+  <mask id="a-ma" maskUnits="userSpaceOnUse" x="-10" y="-10" width="148" height="140">
+    <rect x="-10" y="-10" width="148" height="140" fill="#fff"/>
+    <path d="M 0 116 C 26 44, 102 44, 128 116" stroke="#000" stroke-width="20" fill="none" clip-path="url(#a-left)"/>
+  </mask>
+  <mask id="a-mr" maskUnits="userSpaceOnUse" x="-10" y="-10" width="148" height="140">
+    <rect x="-10" y="-10" width="148" height="140" fill="#fff"/>
+    <path d="M 16 116 L 64 26 L 112 116" stroke="#000" stroke-width="25" fill="none" stroke-linejoin="miter" clip-path="url(#a-right)"/>
+  </mask>
+</defs>
+<g clip-path="url(#a-base)">
+  <path d="M 16 116 L 64 26 L 112 116" stroke="#0B2A30" stroke-width="17" fill="none" stroke-linejoin="miter" stroke-miterlimit="6" mask="url(#a-ma)"/>
+  <path d="M 0 116 C 26 44, 102 44, 128 116" stroke="#C9A24B" stroke-width="11" fill="none" mask="url(#a-mr)"/>
+</g>
+</svg>
