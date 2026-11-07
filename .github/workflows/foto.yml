@@ -24,7 +24,7 @@ jobs:
         run: |
           python - <<'PY'
           import io, pathlib, urllib.request
-          from PIL import Image, ImageOps
+          from PIL import Image, ImageOps, ImageEnhance
           U = 'https://images.unsplash.com/'
           I = 'https://introdental.id/uploads/gallery/'
           # nama file, sumber, lebar maksimum (px)
@@ -37,9 +37,9 @@ jobs:
               ('intro-lobi',              I + '1766034173_cca6f408b66af8667fce.jpeg', 1800),                 # Klinik Utama INTRO Dental
               ('intro-radiologi',         I + '1766034279_b13e7bfc8f5c37d89872.jpeg', 1400),                 # Klinik Utama INTRO Dental
               # versi 2: foto Suramadu lanskap (Sakurai Midori, Wikimedia Commons, CC BY 3.0)
-              ('suramadu-lanskap',        'https://commons.wikimedia.org/wiki/Special:FilePath/Suramadu_Bridge_5.JPG?width=2400', 2400),
+              ('suramadu-lanskap',        'https://commons.wikimedia.org/wiki/Special:FilePath/Suramadu_Bridge_5.JPG?width=2400', 2400, None, 'hangat'),  # dipotong & warna dihangatkan (wajib disebut, CC BY)
               # versi 2: foto klinik dipotong bagian tengah supaya lengkung lensa di tepi hilang
-              ('intro-lobi-potong',       I + '1766034173_cca6f408b66af8667fce.jpeg', 1800, (0.14, 0.10, 0.86, 0.82)),
+              ('intro-lobi-potong',       I + '1766034173_cca6f408b66af8667fce.jpeg', 1800, (0.34, 0.12, 0.93, 0.78)),  # tanpa banner merek pihak ketiga
               ('intro-ruang-potong',      I + '1766033792_da64e3f6a7adcbc8fb90.jpeg', 1800, (0.14, 0.10, 0.86, 0.82)),
           ]
           out = pathlib.Path('foto'); out.mkdir(exist_ok=True)
@@ -47,11 +47,16 @@ jobs:
               req = urllib.request.Request(url, headers={'User-Agent': 'arzakbersama-site-build/1.0 (https://arzakbersama.com)'})
               data = urllib.request.urlopen(req, timeout=90).read()
               im = ImageOps.exif_transpose(Image.open(io.BytesIO(data))).convert('RGB')
-              if potong:
+              if potong and potong[0]:
                   l, t, r, b = potong[0]
                   im = im.crop((int(l * im.width), int(t * im.height), int(r * im.width), int(b * im.height)))
               if im.width > lebar:
                   im = im.resize((lebar, round(im.height * lebar / im.width)), Image.LANCZOS)
+              if len(potong) > 1 and potong[1] == 'hangat':
+                  r_, g_, b_ = im.split()
+                  r_ = r_.point(lambda v: min(255, int(v * 1.05)))
+                  b_ = b_.point(lambda v: int(v * 0.93))
+                  im = ImageEnhance.Contrast(Image.merge('RGB', (r_, g_, b_))).enhance(1.08)
               # disimpan tanpa EXIF: lokasi GPS dan data kamera tidak ikut
               im.save(out / f'{nama}.jpg', 'JPEG', quality=80, optimize=True, progressive=True)
               print(f'{nama}: {im.size[0]}x{im.size[1]}, {(out / f"{nama}.jpg").stat().st_size // 1024} KB')
