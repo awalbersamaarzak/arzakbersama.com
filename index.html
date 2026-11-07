@@ -4,19 +4,19 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ARZAK — Selalu Bersama</title>
-<meta name="description" content="ARZAK adalah perusahaan induk milik keluarga drg. Arvi dan drg. Zakki. Kami mendirikan, mengambil alih, dan menaungi usaha, lalu menjaga standar, aset, dan mereknya agar bertahan lama.">
-<meta name="theme-color" content="#2A0B12">
+<meta name="description" content="ARZAK berasal dari nama dua dokter gigi, Arvi dan Zakki. PT Arzak Selalu Bersama sedang didirikan sebagai perusahaan induk keluarga mereka.">
+<meta name="theme-color" content="#F7F1EA">
 <link rel="canonical" href="https://arzakbersama.com/">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preload" href="/plus-jakarta-sans.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/foto/hero-jembatan-suroboyo.jpg" as="image" fetchpriority="high">
+<link rel="preload" href="/instrument-serif.woff2" as="font" type="font/woff2" crossorigin>
 
 <meta property="og:type" content="website">
 <meta property="og:locale" content="id_ID">
 <meta property="og:site_name" content="ARZAK">
 <meta property="og:title" content="ARZAK — Selalu Bersama">
-<meta property="og:description" content="Perusahaan induk milik keluarga. Kami mendirikan, mengambil alih, dan menaungi usaha, lalu menjaga standar, aset, dan mereknya agar bertahan lama.">
+<meta property="og:description" content="Dua dokter gigi, satu nama, dan usaha yang dirancang untuk diwariskan.">
 <meta property="og:url" content="https://arzakbersama.com/">
 <meta property="og:image" content="https://arzakbersama.com/og.jpg">
 <meta property="og:image:width" content="1200">
@@ -39,617 +39,399 @@
 </script>
 
 <style>
-@font-face {
-  font-family: "Plus Jakarta Sans";
-  src: url("/plus-jakarta-sans.woff2") format("woff2");
-  font-weight: 200 800;
-  font-style: normal;
-  font-display: swap;
-}
+@font-face { font-family: "Plus Jakarta Sans"; src: url("/plus-jakarta-sans.woff2") format("woff2"); font-weight: 200 800; font-display: swap; }
+@font-face { font-family: "Instrument Serif"; src: url("/instrument-serif.woff2") format("woff2"); font-weight: 400; font-display: swap; }
 
 :root {
-  --wine-950: #1C060B;
-  --wine-900: #2A0B12;
-  --wine-800: #3A0F17;
-  --burgundy: #6E1E2B;
-  --burgundy-ink: #5A1724;
-  --gold: #C9A24B;
-  --gold-light: #E6C980;
-  --ivory: #F7F1EA;
-  --ivory-2: #EFE4D6;
-  --ink: #2A1A1E;
+  --paper: #F7F1EA;
+  --paper-2: #EFE5D8;
+  --ink: #26161A;
   --muted: #6E5A5E;
-  --on-dark: #F7EFE7;
-  --on-dark-muted: #CDB7B0;
-  --line: rgba(42, 11, 18, 0.14);
-  --line-dark: rgba(247, 239, 231, 0.16);
+  --burg: #6E1E2B;
+  --burg-ink: #5A1724;
+  --gold: #C9A24B;
+  --gold-deep: #85621F;   /* emas untuk teks kecil di atas kertas (4,97:1) */
+  --gold-np: #A58131;     /* emas untuk papan nama raksasa (teks besar, 3,24:1) */
+  --wine: #2A0B12;
+  --on: #F7EFE7;
+  --on-muted: #D3BFB9;
+  --rule: rgba(38, 22, 26, 0.18);
+  --rule-strong: rgba(38, 22, 26, 0.55);
+  --rule-dark: rgba(247, 239, 231, 0.18);
 
-  --wrap: 76rem;
+  --serif: "Instrument Serif", "Iowan Old Style", Georgia, serif;
+  --sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --wrap: 80rem;
   --gutter: clamp(1rem, 4vw, 2.5rem);
-  --section: clamp(4.5rem, 10vw, 8.5rem);
 }
 
 *, *::before, *::after { box-sizing: border-box; }
-html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; scroll-padding-top: 4.5rem; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
-
 body {
-  margin: 0;
-  background: var(--ivory);
-  color: var(--ink);
-  font-family: "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  font-size: 1.0625rem;
-  line-height: 1.65;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
+  margin: 0; background: var(--paper); color: var(--ink);
+  font-family: var(--sans); font-size: 1.0625rem; line-height: 1.65;
+  -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
 }
-h1, h2, h3, p, figure { margin: 0; }
-h2, h3, .claim { text-wrap: balance; }
-img { display: block; max-width: 100%; }
-a { color: inherit; }
-a:focus-visible, button:focus-visible {
-  outline: 2px solid var(--gold);
-  outline-offset: 3px;
-  border-radius: 2px;
-}
+h1, h2, h3, p, figure, ol, ul, dl, dd { margin: 0; }
+ol, ul { padding: 0; list-style: none; }
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; text-underline-offset: 3px; }
+:focus-visible { outline: 3px solid var(--burg); outline-offset: 3px; border-radius: 2px; }
+.dark :focus-visible { outline-color: var(--gold); }
+h2, h3, .lead h1 { text-wrap: balance; }
 
 .wrap { width: 100%; max-width: var(--wrap); margin-inline: auto; padding-inline: var(--gutter); }
-
-.skip {
-  position: absolute; left: -999px; top: 0; z-index: 20;
-  background: var(--gold); color: var(--wine-900);
-  padding: .5rem .875rem; font-weight: 600;
-}
+.skip { position: absolute; left: -999px; top: 0; z-index: 30; background: var(--burg); color: var(--on); padding: .6rem 1rem; font-weight: 600; }
 .skip:focus { left: var(--gutter); top: .75rem; }
 
-.credit {
-  font-size: .75rem;
-  line-height: 1.4;
-  color: var(--on-dark-muted);
-  opacity: .85;
+/* ===== Nameplate ===== */
+.plate-name { padding-top: clamp(1.25rem, 3vw, 2rem); }
+.edition {
+  display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+  font-size: .875rem; color: var(--muted);
+  padding-bottom: .75rem; border-bottom: 1px solid var(--rule-strong);
+}
+.nameplate {
+  font-family: var(--sans); font-weight: 800;
+  font-size: clamp(5.5rem, 25.5vw, 23rem);
+  line-height: .8; letter-spacing: -.03em;
+  margin: clamp(.75rem, 2vw, 1.5rem) 0 clamp(.5rem, 1.6vw, 1.25rem) -.05em;
+  white-space: nowrap;
+}
+.nameplate .ar { color: var(--burg); }
+.nameplate .zak { color: var(--gold-np); margin-left: -.06em; letter-spacing: 0; }
+.origin {
+  display: grid; grid-template-columns: 1fr 1fr; gap: clamp(1rem, 3vw, 2.5rem);
+  border-top: 1px solid var(--rule-strong); padding-top: .9rem;
+}
+.origin p { font-size: .9375rem; line-height: 1.45; }
+.origin b { display: block; font-size: 1rem; }
+.origin .a b { color: var(--burg); }
+.origin .z b { color: var(--gold-deep); }
+.origin span { color: var(--muted); }
+
+/* ===== Sticky nav ===== */
+.bar {
+  position: sticky; top: 0; z-index: 20;
+  background: var(--paper);
+  border-bottom: 1px solid var(--rule);
+  margin-top: clamp(1.5rem, 4vw, 2.5rem);
+}
+.bar .wrap { display: flex; align-items: center; gap: 1.25rem; min-height: 3.5rem; }
+.bar .mk { display: inline-flex; align-items: center; gap: .5rem; font-weight: 800; letter-spacing: .03em; text-decoration: none; color: var(--burg-ink); opacity: 0; visibility: hidden; transition: opacity .25s ease, visibility .25s; }
+.bar.stuck .mk { opacity: 1; visibility: visible; }
+.bar .mk svg { width: 1.9rem; height: auto; }
+.bar nav { margin-left: auto; display: flex; flex-wrap: wrap; justify-content: flex-end; gap: .25rem 1.4rem; font-size: .9375rem; font-weight: 500; }
+.bar nav a { text-decoration: none; padding-block: .55rem; border-bottom: 2px solid transparent; }
+.bar nav a:hover, .bar nav a[aria-current] { border-bottom-color: var(--burg); color: var(--burg-ink); }
+@media (max-width: 40rem) {
+  .bar .wrap { flex-direction: column; align-items: stretch; gap: 0; padding-block: .25rem; }
+  .bar .mk { display: none; }
+  .bar nav { margin-left: 0; flex-wrap: nowrap; justify-content: space-between; gap: .9rem; font-size: .875rem; white-space: nowrap; overflow-x: auto; scrollbar-width: none; }
+  .bar nav::-webkit-scrollbar { display: none; }
+  .bar nav a { padding-block: .75rem; }
 }
 
-/* ================= HERO ================= */
+/* ===== Lead ===== */
+.lead {
+  display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  gap: clamp(1.75rem, 5vw, 5rem); align-items: end;
+  padding-block: clamp(3rem, 7vw, 5.5rem) clamp(2.5rem, 5vw, 4rem);
+}
+@media (max-width: 56rem) { .lead { grid-template-columns: 1fr; } }
+.lead h1 {
+  font-family: var(--serif); font-weight: 400;
+  font-size: clamp(2.75rem, 6.6vw, 6.25rem); line-height: .98; letter-spacing: -.012em;
+}
+.dek p { font-size: clamp(1.0625rem, 1.4vw, 1.1875rem); line-height: 1.65; max-width: 32rem; }
+.dek p + p { margin-top: 1rem; color: var(--muted); }
 
-.hero {
-  position: relative;
-  min-height: 100vh;
-  min-height: 100svh;
-  display: flex;
-  flex-direction: column;
-  color: var(--on-dark);
-  background: var(--wine-900);
-  overflow: hidden;
-  isolation: isolate;
+/* ===== Photo plate ===== */
+.photo { margin-bottom: clamp(3.5rem, 8vw, 6rem); }
+.photo img { width: 100%; aspect-ratio: 21 / 9; object-fit: cover; object-position: 50% 55%; }
+@media (max-width: 40rem) { .photo img { aspect-ratio: 4 / 3; object-position: 32% 50%; } }
+.photo figcaption {
+  display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(1rem, 5vw, 5rem);
+  padding-top: .75rem; font-size: .9375rem; color: var(--muted);
 }
-.hero-photo {
-  position: absolute; inset: 0; z-index: -3;
-  width: 100%; height: 100%;
-  object-fit: cover;
-  object-position: 50% 62%;
-}
-.hero-tint {                      /* burgundy colour wash over the photo */
-  position: absolute; inset: 0; z-index: -2;
-  background: var(--burgundy);
-  mix-blend-mode: multiply;
-  opacity: .45;
-}
-.hero-shade {                     /* legibility: dark at top and bottom-left */
-  position: absolute; inset: 0; z-index: -1;
-  background:
-    linear-gradient(180deg, rgba(28,6,11,.70) 0%, rgba(28,6,11,.05) 26%, rgba(28,6,11,.10) 48%, rgba(28,6,11,.88) 82%, var(--wine-900) 100%),
-    linear-gradient(90deg, rgba(28,6,11,.65) 0%, rgba(28,6,11,0) 62%);
-}
+.photo figcaption .cr { font-size: .875rem; text-align: right; }
+@media (max-width: 56rem) { .photo figcaption { grid-template-columns: 1fr; gap: .25rem; } .photo figcaption .cr { text-align: left; } }
+
+/* ===== Anatomy plate (wine) ===== */
+.dark { background: var(--wine); color: var(--on); }
+.anat { padding-block: clamp(4rem, 9vw, 7rem); }
+.anat-head { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; border-bottom: 1px solid var(--rule-dark); padding-bottom: .9rem; }
+.anat-head h2 { font-size: clamp(1.5rem, 2.6vw, 2.25rem); font-weight: 700; letter-spacing: -.02em; }
+.anat-head span { color: var(--on-muted); font-size: .9375rem; }
+.anat-grid { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(2rem, 5vw, 5rem); align-items: center; margin-top: clamp(2rem, 5vw, 3.5rem); }
+@media (max-width: 56rem) { .anat-grid { grid-template-columns: 1fr; } }
+.anat figure svg { width: 100%; height: auto; max-height: 34rem; overflow: visible; }
+.anat .lead-line { stroke-dasharray: 80; stroke-dashoffset: 0; }
+.anat .badge { opacity: 1; }
 @media (prefers-reduced-motion: no-preference) {
-  .hero-photo { animation: drift 24s ease-out both; }
+  .anat.armed .mark-art { opacity: 0; transform: translateY(10px); transition: opacity .9s ease, transform .9s cubic-bezier(.2,.7,.1,1); }
+  .anat.armed .lead-line { stroke-dashoffset: 80; transition: stroke-dashoffset .7s ease .5s; }
+  .anat.armed .badge { opacity: 0; transition: opacity .4s ease .9s; }
+  .anat.armed.on .mark-art { opacity: 1; transform: none; }
+  .anat.armed.on .lead-line { stroke-dashoffset: 0; }
+  .anat.armed.on .badge { opacity: 1; }
 }
-@keyframes drift { from { transform: scale(1.12); } to { transform: scale(1); } }
+.parts li { display: grid; grid-template-columns: 2.25rem 1fr; gap: .9rem; padding-block: 1.1rem; border-top: 1px solid var(--rule-dark); }
+.parts li:last-child { border-bottom: 1px solid var(--rule-dark); }
+.parts .n { width: 2rem; height: 2rem; border: 1.5px solid var(--gold); border-radius: 50%; display: grid; place-items: center; color: var(--gold); font-weight: 700; font-size: .9375rem; font-variant-numeric: tabular-nums; }
+.parts b { display: block; font-size: 1.0625rem; }
+.parts p { color: var(--on-muted); font-size: .9875rem; line-height: 1.55; margin-top: .2rem; }
 
-.top {
-  display: flex; align-items: center; justify-content: space-between; gap: 1.5rem;
-  padding-block: 1.5rem;
+/* ===== Register (peran) ===== */
+.section { padding-block: clamp(4rem, 9vw, 7rem); }
+.kicker { font-size: .9375rem; font-weight: 600; color: var(--burg); margin-bottom: .75rem; }
+.sec-head h2 { font-size: clamp(2rem, 4.2vw, 3.4rem); font-weight: 750; line-height: 1.05; letter-spacing: -.03em; max-width: 18ch; }
+.sec-head p.intro { margin-top: 1rem; color: var(--muted); max-width: 40rem; }
+.reg-grid { display: grid; grid-template-columns: minmax(0, 8fr) minmax(0, 4fr); gap: clamp(2rem, 5vw, 5rem); margin-top: clamp(2.25rem, 5vw, 3.5rem); align-items: start; }
+@media (max-width: 56rem) { .reg-grid { grid-template-columns: 1fr; } }
+.register { counter-reset: r; border-top: 2px solid var(--ink); }
+.register li {
+  counter-increment: r;
+  display: grid; grid-template-columns: 3rem 1fr; gap: .5rem;
+  padding-block: 1rem 1.05rem; border-bottom: 1px solid var(--rule);
+  font-size: clamp(1.0625rem, 1.6vw, 1.25rem); line-height: 1.45;
 }
-.brand {
-  display: inline-flex; align-items: center; gap: .7rem;
-  text-decoration: none; font-weight: 700; letter-spacing: .04em; font-size: 1.125rem;
-}
-.brand svg { width: 2.3rem; height: auto; display: block; }
-.nav { display: flex; gap: clamp(1rem, 2.5vw, 2.25rem); font-size: .9375rem; }
-.nav a {
-  color: var(--on-dark); opacity: .82; text-decoration: none;
-  padding-block: .25rem; border-bottom: 1px solid transparent;
-  transition: opacity .2s ease, border-color .2s ease;
-}
-.nav a:hover { opacity: 1; border-bottom-color: var(--gold); }
-@media (max-width: 50rem) { .nav { display: none; } }
+.register li::before { content: counter(r, decimal-leading-zero); font-weight: 700; color: var(--burg); font-variant-numeric: tabular-nums; font-size: .9375rem; padding-top: .2rem; }
+.not { border-top: 2px solid var(--burg); padding-top: 1rem; }
+.not h3 { font-size: 1.0625rem; font-weight: 700; color: var(--burg-ink); }
+.not ul { margin-top: .75rem; }
+.not li { padding-block: .6rem; border-bottom: 1px solid var(--rule); color: var(--ink); }
+.not li b { color: var(--burg); }
 
-.hero-body {
-  margin-top: auto;
-  padding-top: clamp(5rem, 14vh, 9rem);
-  padding-bottom: clamp(2.5rem, 6vh, 4rem);
-}
-.hero-note { color: var(--gold-light); font-size: .9375rem; font-weight: 500; margin-bottom: clamp(.75rem, 2vw, 1.25rem); }
+/* ===== Essay (usaha pertama) ===== */
+.section.essay { padding-top: 0; }
+.essay .sec-head { border-top: 1px solid var(--rule-strong); padding-top: clamp(3rem, 7vw, 5rem); }
+.essay-grid { display: grid; grid-template-columns: minmax(0, 8fr) minmax(0, 4fr); gap: clamp(1.75rem, 4vw, 3.5rem); margin-top: clamp(2rem, 4vw, 3rem); }
+@media (max-width: 56rem) { .essay-grid { grid-template-columns: 1fr; } }
+.essay figure img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; }
+.essay figcaption { font-size: .875rem; color: var(--muted); margin-top: .6rem; }
+.essay .side p { line-height: 1.75; }
+.essay .side p + p { margin-top: 1.1rem; }
+.essay .side p.drop::first-letter { font-family: var(--serif); float: left; font-size: 4.9rem; line-height: .78; padding: .4rem .55rem 0 0; color: var(--burg); }
+.essay .small { margin-top: 1.75rem; }
+.essay .small img { aspect-ratio: 4 / 3; }
+.fields { margin-top: clamp(2.5rem, 5vw, 3.5rem); padding-top: 1.25rem; border-top: 1px solid var(--rule); display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: clamp(1rem, 4vw, 3.5rem); }
+@media (max-width: 56rem) { .fields { grid-template-columns: 1fr; } }
+.fields h3 { font-size: 1.0625rem; font-weight: 700; }
+.fields p { font-size: clamp(1.0625rem, 1.5vw, 1.1875rem); line-height: 1.6; }
+.go { font-weight: 700; color: var(--burg-ink); }
 
-.word {
-  font-size: clamp(5rem, 24vw, 15.5rem);
-  font-weight: 800; line-height: .84; letter-spacing: -.045em;
-  margin-left: -.045em; white-space: nowrap;
-  text-shadow: 0 10px 60px rgba(28,6,11,.35);
+/* ===== Principle ===== */
+.principle { background: var(--paper-2); }
+.big {
+  font-family: var(--serif); font-weight: 400;
+  font-size: clamp(2.75rem, 7vw, 6.5rem); line-height: 1; letter-spacing: -.01em; color: var(--burg-ink);
+  max-width: 16ch;
 }
-.word .ar  { color: var(--on-dark); display: inline-block; }
-.word .zak { color: var(--gold);    display: inline-block; }
+.big-note { margin-top: 1.25rem; font-size: 1.125rem; max-width: 36rem; }
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(1.5rem, 5vw, 5rem); margin-top: clamp(2.5rem, 5vw, 4rem); border-top: 1px solid var(--rule-strong); padding-top: 1.5rem; }
+@media (max-width: 44rem) { .two { grid-template-columns: 1fr; } }
+.two h3 { font-size: 1.25rem; font-weight: 750; letter-spacing: -.01em; }
+.two p { margin-top: .5rem; color: var(--muted); }
 
-.hero-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
-  gap: clamp(1.5rem, 5vw, 5rem);
-  align-items: end;
-  margin-top: clamp(1.75rem, 4vw, 2.75rem);
-}
-@media (max-width: 56rem) { .hero-grid { grid-template-columns: 1fr; } }
-
-.origin { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(1rem, 3vw, 2rem); }
-.origin div { padding-top: .875rem; border-top: 2px solid var(--on-dark); }
-.origin div + div { border-top-color: var(--gold); }
-.origin b { display: block; font-weight: 700; font-size: .9375rem; }
-.origin div + div b { color: var(--gold-light); }
-.origin span { display: block; font-size: .9375rem; line-height: 1.5; margin-top: .25rem; color: var(--on-dark); opacity: .9; }
-
-.claim {
-  font-size: clamp(1.625rem, 3.4vw, 2.625rem);
-  font-weight: 650; line-height: 1.12; letter-spacing: -.02em;
-}
-.lede { margin-top: 1rem; color: var(--on-dark); opacity: .86; max-width: 36rem; font-size: clamp(1rem, 1.4vw, 1.125rem); }
-.cta {
-  display: inline-flex; align-items: center; gap: .6rem;
-  margin-top: 1.75rem; padding: .9rem 1.4rem;
-  background: var(--gold); color: var(--wine-900);
-  font-weight: 700; font-size: .975rem; text-decoration: none;
-  border-radius: 999px;
-  transition: background .2s ease, transform .2s ease;
-}
-.cta:hover { background: var(--gold-light); transform: translateY(-1px); }
-.cta svg { width: 1rem; height: 1rem; }
-
-.hero-foot {
-  display: flex; justify-content: flex-end;
-  padding-bottom: 1rem;
+/* ===== Chronology ===== */
+.years { display: grid; grid-template-columns: 1fr 1fr 1.3fr; border-top: 2px solid var(--ink); margin-top: clamp(2rem, 4vw, 3rem); }
+.years > div { padding: 1.25rem 1.5rem 1.75rem 0; }
+.years > div + div { padding-left: 1.5rem; border-left: 1px solid var(--rule); }
+.years b { display: block; font-family: var(--serif); font-weight: 400; font-size: clamp(3rem, 6vw, 5.25rem); line-height: 1; color: var(--burg); }
+.years .later b { color: var(--muted); }
+.years p { margin-top: .6rem; max-width: 22rem; }
+@media (max-width: 44rem) {
+  .years { grid-template-columns: 1fr; }
+  .years > div, .years > div + div { padding: 1.1rem 0 1.25rem; border-left: 0; border-bottom: 1px solid var(--rule); }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .word .ar  { animation: meet-left 1.2s cubic-bezier(.2,.7,.1,1) both .2s; }
-  .word .zak { animation: meet-right 1.2s cubic-bezier(.2,.7,.1,1) both .2s; }
-  .hero-grid, .hero-note { animation: rise .9s ease-out both 1.05s; }
-}
-@keyframes meet-left  { from { transform: translateX(-.4em); opacity: 0; } to { transform: none; opacity: 1; } }
-@keyframes meet-right { from { transform: translateX(.4em);  opacity: 0; } to { transform: none; opacity: 1; } }
-@keyframes rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
-
-/* ================= MARQUEE ================= */
-
-.band {
-  background: var(--gold);
-  color: var(--wine-900);
-  overflow: hidden;
-  border-block: 1px solid rgba(28,6,11,.12);
-}
-.band-track {
-  display: flex; width: max-content;
-  gap: 2.5rem; padding-block: 1.05rem;
-  font-size: clamp(1.125rem, 2.2vw, 1.625rem);
-  font-weight: 700; letter-spacing: -.01em; white-space: nowrap;
-}
-.band-track span { display: inline-flex; align-items: center; gap: 2.5rem; }
-.band-track span::after {
-  content: ""; width: .55em; height: .55em; flex: none;
-  background: var(--burgundy); transform: rotate(45deg);
-}
-@media (prefers-reduced-motion: no-preference) {
-  .band-track { animation: slide 38s linear infinite; }
-}
-@keyframes slide { to { transform: translateX(-50%); } }
-
-/* ================= SHARED ================= */
-
-section.block { padding-block: var(--section); position: relative; }
-h2 {
-  font-size: clamp(2rem, 4.4vw, 3.5rem);
-  font-weight: 750; line-height: 1.06; letter-spacing: -.03em;
-  max-width: 15ch;
-}
-.intro { margin-top: 1.25rem; color: var(--muted); max-width: 36rem; font-size: 1.0625rem; }
-h3 { font-size: 1.1875rem; font-weight: 700; line-height: 1.3; letter-spacing: -.01em; }
-
-.dark { background: var(--wine-900); color: var(--on-dark); }
-.dark .intro { color: var(--on-dark-muted); }
-
-/* ================= ROLES ================= */
-
-.roles-sec { overflow: hidden; }
-.roles-sec .decor {
-  position: absolute; right: -6rem; top: 3rem;
-  width: min(46rem, 80vw); opacity: .07; pointer-events: none;
-}
-.roles-head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(1.5rem, 5vw, 5rem); align-items: end; }
-@media (max-width: 52rem) { .roles-head { grid-template-columns: 1fr; } }
-.roles {
-  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: clamp(2rem, 4vw, 3rem) clamp(1.5rem, 3.5vw, 3rem);
-  margin-top: clamp(2.5rem, 6vw, 4.5rem);
-}
-@media (max-width: 60rem) { .roles { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 36rem) { .roles { grid-template-columns: 1fr; } }
-.roles article { padding-top: 1.25rem; border-top: 3px solid var(--burgundy); }
-.roles article.key { border-top-color: var(--gold); }
-.roles p { margin-top: .5rem; color: var(--muted); }
-
-/* ================= BUSINESSES ================= */
-
-.biz {
-  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: clamp(1rem, 2.5vw, 1.5rem);
-  margin-top: clamp(2.5rem, 5vw, 3.5rem);
-}
-@media (max-width: 48rem) { .biz { grid-template-columns: 1fr; } }
-.card {
-  position: relative; overflow: hidden; isolation: isolate;
-  min-height: clamp(22rem, 38vw, 27rem);
-  border-radius: 14px;
-  display: flex; flex-direction: column; justify-content: flex-end;
-  padding: clamp(1.5rem, 3vw, 2.25rem);
-  background: var(--wine-800);
-}
-.card img {
-  position: absolute; inset: 0; z-index: -2;
-  width: 100%; height: 100%; object-fit: cover;
-  transition: transform .8s cubic-bezier(.2,.7,.1,1);
-}
-.card:hover img { transform: scale(1.05); }
-.card::before {
-  content: ""; position: absolute; inset: 0; z-index: -1;
-  background: linear-gradient(180deg, rgba(28,6,11,.05) 15%, rgba(28,6,11,.70) 52%, rgba(28,6,11,.95) 100%);
-}
-.card h3 { font-size: clamp(1.5rem, 2.6vw, 2rem); letter-spacing: -.02em; }
-.card p.body { margin-top: .5rem; color: var(--on-dark); opacity: .88; max-width: 32rem; }
-.card .now { margin-top: .9rem; font-size: .9375rem; color: var(--gold-light); font-weight: 600; }
-.card .now a { color: var(--gold-light); text-underline-offset: 3px; }
-.status {
-  position: absolute; top: 1.1rem; left: 1.1rem;
-  display: inline-flex; align-items: center; gap: .5rem;
-  padding: .4rem .8rem; border-radius: 999px;
-  background: rgba(28,6,11,.62); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
-  font-size: .8125rem; font-weight: 600; color: var(--on-dark);
-}
-.status::before { content: ""; width: .5rem; height: .5rem; border-radius: 50%; background: #5BD08A; }
-.status.soon::before { background: transparent; border: 2px solid var(--gold); width: .6rem; height: .6rem; }
-.status.open::before { background: var(--gold); }
-.card.blank {
-  background:
-    radial-gradient(120% 90% at 85% 10%, rgba(201,162,75,.38) 0%, rgba(201,162,75,0) 55%),
-    linear-gradient(160deg, var(--burgundy) 0%, var(--wine-900) 100%);
-}
-.card.blank::before { display: none; }
-.card.blank .big-mark { position: absolute; right: -2rem; top: 2.5rem; width: 62%; opacity: .9; z-index: -1; }
-.biz-note { margin-top: 2rem; color: var(--on-dark-muted); max-width: 46rem; }
-
-/* ================= INTRO SPOTLIGHT ================= */
-
-.spot-grid {
-  display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
-  gap: clamp(2rem, 5vw, 5rem); align-items: center;
-}
-@media (max-width: 56rem) { .spot-grid { grid-template-columns: 1fr; } }
-.facts { display: flex; flex-wrap: wrap; gap: 1.75rem 2.5rem; margin-top: 2rem; }
-.facts div { border-left: 3px solid var(--gold); padding-left: .9rem; }
-.facts b { display: block; font-size: 1.5rem; font-weight: 750; letter-spacing: -.02em; color: var(--burgundy-ink); line-height: 1.2; }
-.facts span { font-size: .9375rem; color: var(--muted); }
-.spot-link { display: inline-block; margin-top: 2rem; font-weight: 700; color: var(--burgundy-ink); text-underline-offset: 4px; }
-.collage {
-  display: grid;
-  grid-template-columns: 1.35fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  gap: clamp(.6rem, 1.4vw, 1rem);
-  aspect-ratio: 5 / 4;
-}
-.collage img { width: 100%; height: 100%; object-fit: cover; border-radius: 12px; }
-.collage .c1 { grid-row: 1 / 3; }
-.collage figcaption { grid-column: 1 / -1; font-size: .8125rem; color: var(--muted); }
-@media (max-width: 36rem) { .collage { aspect-ratio: 4 / 5; grid-template-columns: 1fr 1fr; grid-template-rows: 1.4fr 1fr; } .collage .c1 { grid-row: 1; grid-column: 1 / -1; } }
-
-/* ================= PRINCIPLES ================= */
-
-.principles { background: var(--wine-800); color: var(--on-dark); }
-.rows { margin-top: clamp(2.5rem, 5vw, 3.5rem); border-top: 1px solid var(--line-dark); }
-.row {
-  display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
-  gap: clamp(.5rem, 6vw, 6rem);
-  padding-block: clamp(1.5rem, 3vw, 2.1rem);
-  border-bottom: 1px solid var(--line-dark);
-}
-.row h3 { font-size: clamp(1.25rem, 2.2vw, 1.5rem); color: var(--gold-light); }
-.row p { color: var(--on-dark-muted); max-width: 36rem; }
-@media (max-width: 52rem) { .row { grid-template-columns: 1fr; } }
-
-/* ================= OWNERSHIP (photo band) ================= */
-
-.own {
-  position: relative; isolation: isolate; overflow: hidden;
-  color: var(--on-dark);
-  padding-block: clamp(6rem, 16vw, 12rem);
-  background: var(--wine-950);
-}
-.own > img {
-  position: absolute; inset: 0; z-index: -2;
-  width: 100%; height: 100%; object-fit: cover; object-position: 50% 45%;
-}
-.own::before {
-  content: ""; position: absolute; inset: 0; z-index: -1;
-  background:
-    linear-gradient(90deg, rgba(28,6,11,.94) 0%, rgba(28,6,11,.78) 50%, rgba(42,11,18,.45) 100%),
-    linear-gradient(0deg, rgba(110,30,43,.35), rgba(110,30,43,.35));
-}
-.own .bridge { color: var(--gold-light); font-weight: 600; max-width: 34rem; margin-bottom: 1.5rem; }
-.own .statement {
-  font-size: clamp(1.875rem, 4.4vw, 3.5rem);
-  font-weight: 700; line-height: 1.12; letter-spacing: -.03em; max-width: 20ch;
-}
-.own .fine { margin-top: 2rem; color: var(--on-dark-muted); max-width: 40rem; }
-.own .credit { position: absolute; right: var(--gutter); bottom: 1rem; }
-
-/* ================= JOURNEY ================= */
-
-.split { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(2rem, 6vw, 6rem); align-items: start; }
-@media (max-width: 52rem) { .split { grid-template-columns: 1fr; } }
-.journey { list-style: none; margin: 0; padding: 0; }
-.journey li {
-  display: grid; grid-template-columns: 8.5rem 1fr; gap: 1.5rem;
-  padding-block: 1.6rem; border-bottom: 1px solid var(--line);
-}
-.journey li:first-child { border-top: 1px solid var(--line); }
-.journey .when { font-weight: 750; font-size: 1.375rem; letter-spacing: -.01em; color: var(--burgundy-ink); font-variant-numeric: tabular-nums; }
-.journey li.plan .when { color: var(--muted); font-weight: 650; }
-.journey li.plan p { color: var(--muted); }
-@media (max-width: 36rem) { .journey li { grid-template-columns: 1fr; gap: .25rem; } }
-
-/* ================= FOOTER ================= */
-
-footer { background: var(--wine-950); color: var(--on-dark-muted); font-size: .9375rem; }
-.foot {
-  display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr) minmax(0, 1fr);
-  gap: 2rem; padding-block: clamp(3rem, 6vw, 4.5rem);
-}
-@media (max-width: 56rem) { .foot { grid-template-columns: 1fr; } }
-.foot .logo { width: 13.5rem; height: auto; margin-bottom: 1.25rem; }
-.foot p + p { margin-top: .5rem; }
-.foot a { color: var(--on-dark); text-underline-offset: 3px; }
-.foot .label { color: var(--on-dark); font-weight: 600; margin-bottom: .5rem; }
-.credits { list-style: none; margin: 0; padding: 0; font-size: .8125rem; line-height: 1.55; }
-.legal {
-  border-top: 1px solid var(--line-dark);
-  padding-block: 1.25rem 2rem; font-size: .8125rem;
-  display: flex; flex-wrap: wrap; gap: .5rem 2rem; justify-content: space-between;
-}
+/* ===== Colophon (footer) ===== */
+.colophon { padding-block: clamp(3.5rem, 7vw, 5rem) 2rem; }
+.col-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(2rem, 4vw, 4rem); }
+@media (max-width: 64rem) { .col-grid { grid-template-columns: 1fr 1fr; } .col-grid .col-id { grid-column: 1 / -1; } }
+@media (max-width: 56rem) { .col-grid { grid-template-columns: 1fr; } }
+.colophon .logo { width: 15rem; max-width: 70%; height: auto; }
+.colophon h2 { font-size: 1.25rem; font-weight: 700; margin-top: 1.5rem; }
+.colophon .ed-line { color: var(--on-muted); margin-top: .35rem; font-size: .9375rem; }
+.notes dt { font-weight: 700; color: var(--on); margin-top: 1rem; }
+.notes dt:first-child { margin-top: 0; }
+.notes dd { color: var(--on-muted); margin-top: .2rem; }
+.notes a { color: var(--on); }
+.legal { margin-top: clamp(2.5rem, 5vw, 3.5rem); padding-top: 1.25rem; border-top: 1px solid var(--rule-dark); display: flex; flex-wrap: wrap; justify-content: space-between; gap: .5rem 2rem; font-size: .875rem; color: var(--on-muted); }
 </style>
 </head>
 <body>
 <a class="skip" href="#isi">Lewati ke isi</a>
 
-<header class="hero">
-  <img class="hero-photo" src="/foto/hero-jembatan-suroboyo.jpg" width="2400" height="1348" alt="" fetchpriority="high" decoding="async">
-  <div class="hero-tint" aria-hidden="true"></div>
-  <div class="hero-shade" aria-hidden="true"></div>
-
-  <div class="wrap top">
-    <a class="brand" href="/" aria-label="ARZAK, beranda"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" viewBox="0 0 128 112">
-<defs>
-  <clipPath id="hd-base"><rect x="-10" y="0" width="148" height="100"/></clipPath>
-  <clipPath id="hd-left"><rect x="-10" y="0" width="74" height="120"/></clipPath>
-  <clipPath id="hd-right"><rect x="64" y="0" width="74" height="120"/></clipPath>
-  <mask id="hd-ma" maskUnits="userSpaceOnUse" x="-10" y="-10" width="148" height="140">
-    <rect x="-10" y="-10" width="148" height="140" fill="#fff"/>
-    <path d="M 0 116 C 26 44, 102 44, 128 116" stroke="#000" stroke-width="20" fill="none" clip-path="url(#hd-left)"/>
-  </mask>
-  <mask id="hd-mr" maskUnits="userSpaceOnUse" x="-10" y="-10" width="148" height="140">
-    <rect x="-10" y="-10" width="148" height="140" fill="#fff"/>
-    <path d="M 16 116 L 64 26 L 112 116" stroke="#000" stroke-width="25" fill="none" stroke-linejoin="miter" clip-path="url(#hd-right)"/>
-  </mask>
-</defs>
-<g clip-path="url(#hd-base)">
-  <path d="M 16 116 L 64 26 L 112 116" stroke="#F7F1EA" stroke-width="17" fill="none" stroke-linejoin="miter" stroke-miterlimit="6" mask="url(#hd-ma)"/>
-  <path d="M 0 116 C 26 44, 102 44, 128 116" stroke="#C9A24B" stroke-width="11" fill="none" mask="url(#hd-mr)"/>
-</g>
-</svg>ARZAK</a>
-    <nav class="nav" aria-label="Bagian halaman">
-      <a href="#peran">Peran</a>
-      <a href="#usaha">Yang kami naungi</a>
-      <a href="#prinsip">Cara kami tumbuh</a>
-      <a href="#kepemilikan">Kepemilikan</a>
-    </nav>
+<header class="wrap plate-name">
+  <div class="edition"><span>Perusahaan induk milik keluarga</span><span>Edisi pertama, November 2026</span></div>
+  <p class="nameplate"><span class="ar">AR</span><span class="zak">ZAK</span></p>
+  <div class="origin">
+    <p class="a"><b>AR dari Arvi</b><span>drg. Rizqie Widira Arvianti, Sp.Ort</span></p>
+    <p class="z"><b>ZAK dari Zakki</b><span>drg. Fakhma Zakki Ramadhani, Sp.Ort</span></p>
   </div>
-
-  <div class="wrap hero-body" id="isi">
-    <p class="hero-note">Perusahaan induk milik keluarga, Surabaya</p>
-    <h1 class="word" aria-label="ARZAK"><span class="ar" aria-hidden="true">AR</span><span class="zak" aria-hidden="true">ZAK</span></h1>
-
-    <div class="hero-grid">
-      <div class="origin">
-        <div><b>AR dari Arvi</b><span>drg. Rizqie Widira Arvianti, Sp.Ort</span></div>
-        <div><b>ZAK dari Zakki</b><span>drg. Fakhma Zakki Ramadhani, Sp.Ort</span></div>
-      </div>
-      <div>
-        <p class="claim">Dimulai bersama. Selalu bersama.</p>
-        <p class="lede">Kami mendirikan, mengambil alih, dan menaungi usaha, lalu menjaga standar, aset, dan mereknya agar bertahan lama. Semuanya berawal dari Klinik Utama INTRO Dental di Bangkalan, Madura.</p>
-        <a class="cta" href="#usaha">Lihat yang kami naungi
-          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v11M3 8.5 8 13.5l5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
-      </div>
-    </div>
-  </div>
-  <div class="wrap hero-foot"><p class="credit">Jembatan Suroboyo, Surabaya. Foto: Rizki Oceano / Unsplash</p></div>
 </header>
 
-<div class="band" aria-hidden="true">
-  <div class="band-track">
-    <span>Layanan kesehatan</span><span>Pertumbuhan dan kreatif</span><span>Properti dan peralatan</span><span>Usaha yang sejalan</span><span>Standar yang bisa disalin</span>
-    <span>Layanan kesehatan</span><span>Pertumbuhan dan kreatif</span><span>Properti dan peralatan</span><span>Usaha yang sejalan</span><span>Standar yang bisa disalin</span>
+<div class="bar">
+  <div class="wrap">
+    <a class="mk" href="#" aria-label="ARZAK, kembali ke atas"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" viewBox="0 0 128 112">
+<defs>
+  <clipPath id="nv-base"><rect x="-10" y="0" width="148" height="100"/></clipPath>
+  <clipPath id="nv-left"><rect x="-10" y="0" width="74" height="120"/></clipPath>
+  <clipPath id="nv-right"><rect x="64" y="0" width="74" height="120"/></clipPath>
+  <mask id="nv-ma" maskUnits="userSpaceOnUse" x="-10" y="-10" width="148" height="140">
+    <rect x="-10" y="-10" width="148" height="140" fill="#fff"/>
+    <path d="M 0 116 C 26 44, 102 44, 128 116" stroke="#000" stroke-width="20" fill="none" clip-path="url(#nv-left)"/>
+  </mask>
+  <mask id="nv-mr" maskUnits="userSpaceOnUse" x="-10" y="-10" width="148" height="140">
+    <rect x="-10" y="-10" width="148" height="140" fill="#fff"/>
+    <path d="M 16 116 L 64 26 L 112 116" stroke="#000" stroke-width="25" fill="none" stroke-linejoin="miter" clip-path="url(#nv-right)"/>
+  </mask>
+</defs>
+<g clip-path="url(#nv-base)">
+  <path d="M 16 116 L 64 26 L 112 116" stroke="#6E1E2B" stroke-width="17" fill="none" stroke-linejoin="miter" stroke-miterlimit="6" mask="url(#nv-ma)"/>
+  <path d="M 0 116 C 26 44, 102 44, 128 116" stroke="#C9A24B" stroke-width="11" fill="none" mask="url(#nv-mr)"/>
+</g>
+</svg>ARZAK</a>
+    <nav aria-label="Bagian halaman">
+      <a href="#asal">Asal nama</a>
+      <a href="#peran">Peran</a>
+      <a href="#usaha-pertama">Usaha pertama</a>
+      <a href="#catatan">Status</a>
+    </nav>
   </div>
 </div>
 
-<main>
-  <section class="block roles-sec" id="peran" aria-labelledby="peran-judul">
-    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" class="decor" viewBox="0 0 128 112">
+<main id="isi">
+  <section class="wrap lead" aria-labelledby="judul">
+    <h1 id="judul">Dua dokter gigi, satu nama, dan usaha yang dirancang untuk diwariskan.</h1>
+    <div class="dek">
+      <p>ARZAK berasal dari nama kami berdua. Kami dokter gigi spesialis ortodonti, dan kami sedang mendirikan PT Arzak Selalu Bersama (dalam persiapan pendirian) sebagai perusahaan induk keluarga.</p>
+      <p>Setelah aktanya terbit, di sinilah saham usaha yang kelak didirikan atau diambil alih, gedung dan peralatan, merek, dan standar kerja akan dipegang.</p>
+    </div>
+  </section>
+
+  <figure class="wrap photo">
+    <img src="/foto/suramadu-lanskap.jpg" width="2400" height="1604" alt="Jembatan Suramadu dengan dua pylon merahnya, dilihat dari pantai berlumpur saat air surut, dengan perahu nelayan di depannya" fetchpriority="high" decoding="async">
+    <figcaption>
+      <span>Jembatan Suramadu menghubungkan Surabaya, tempat ARZAK akan berkedudukan, dengan Madura, tempat usaha pertama kami berjalan sejak 2024.</span>
+      <span class="cr">Foto: Sakurai Midori, Wikimedia Commons, CC BY 3.0; dipotong dan warnanya disesuaikan</span>
+    </figcaption>
+  </figure>
+
+  <section class="dark anat" id="asal" aria-labelledby="anat-judul">
+    <div class="wrap">
+      <div class="anat-head"><h2 id="anat-judul">Anatomi tanda ARZAK</h2><span>Gambar 1</span></div>
+      <div class="anat-grid">
+        <figure><svg viewBox="-34 -16 196 140" role="img" aria-label="Logo ARZAK dengan empat bagian bernomor: kaki kiri, kaki kanan, puncak, dan lengkung emas" xmlns="http://www.w3.org/2000/svg"><g class="mark-art">
 <defs>
-  <clipPath id="dc-base"><rect x="-10" y="0" width="148" height="100"/></clipPath>
-  <clipPath id="dc-left"><rect x="-10" y="0" width="74" height="120"/></clipPath>
-  <clipPath id="dc-right"><rect x="64" y="0" width="74" height="120"/></clipPath>
-  <mask id="dc-ma" maskUnits="userSpaceOnUse" x="-10" y="-10" width="148" height="140">
+  <clipPath id="pl-base"><rect x="-10" y="0" width="148" height="100"/></clipPath>
+  <clipPath id="pl-left"><rect x="-10" y="0" width="74" height="120"/></clipPath>
+  <clipPath id="pl-right"><rect x="64" y="0" width="74" height="120"/></clipPath>
+  <mask id="pl-ma" maskUnits="userSpaceOnUse" x="-10" y="-10" width="148" height="140">
     <rect x="-10" y="-10" width="148" height="140" fill="#fff"/>
-    <path d="M 0 116 C 26 44, 102 44, 128 116" stroke="#000" stroke-width="20" fill="none" clip-path="url(#dc-left)"/>
+    <path d="M 0 116 C 26 44, 102 44, 128 116" stroke="#000" stroke-width="20" fill="none" clip-path="url(#pl-left)"/>
   </mask>
-  <mask id="dc-mr" maskUnits="userSpaceOnUse" x="-10" y="-10" width="148" height="140">
+  <mask id="pl-mr" maskUnits="userSpaceOnUse" x="-10" y="-10" width="148" height="140">
     <rect x="-10" y="-10" width="148" height="140" fill="#fff"/>
-    <path d="M 16 116 L 64 26 L 112 116" stroke="#000" stroke-width="25" fill="none" stroke-linejoin="miter" clip-path="url(#dc-right)"/>
+    <path d="M 16 116 L 64 26 L 112 116" stroke="#000" stroke-width="25" fill="none" stroke-linejoin="miter" clip-path="url(#pl-right)"/>
   </mask>
 </defs>
-<g clip-path="url(#dc-base)">
-  <path d="M 16 116 L 64 26 L 112 116" stroke="#6E1E2B" stroke-width="17" fill="none" stroke-linejoin="miter" stroke-miterlimit="6" mask="url(#dc-ma)"/>
-  <path d="M 0 116 C 26 44, 102 44, 128 116" stroke="#6E1E2B" stroke-width="11" fill="none" mask="url(#dc-mr)"/>
+<g clip-path="url(#pl-base)">
+  <path d="M 16 116 L 64 26 L 112 116" stroke="#F7EFE7" stroke-width="17" fill="none" stroke-linejoin="miter" stroke-miterlimit="6" mask="url(#pl-ma)"/>
+  <path d="M 0 116 C 26 44, 102 44, 128 116" stroke="#C9A24B" stroke-width="11" fill="none" mask="url(#pl-mr)"/>
 </g>
-</svg>
-    <div class="wrap">
-      <div class="roles-head">
-        <h2 id="peran-judul">Peran perusahaan induk</h2>
-        <p class="intro">ARZAK tidak menjalankan layanan sehari-hari. Perannya memiliki, mengarahkan, dan menjaga hal-hal yang harus bertahan lebih lama daripada satu tempat usaha.</p>
-      </div>
-      <div class="roles">
-        <article class="key"><h3>Pemegang saham grup</h3><p>Memegang saham perusahaan-perusahaan dalam grup dan menentukan arahnya melalui rapat pemegang saham serta pengurus yang ditunjuk.</p></article>
-        <article class="key"><h3>Mendirikan dan mengambil alih</h3><p>Mendirikan usaha baru, atau membeli dan mengambil alih saham perusahaan yang sejalan, setelah valuasi dan pemeriksaan menyeluruh.</p></article>
-        <article><h3>Standar dan tata kelola</h3><p>Menetapkan cara kerja, mutu layanan, dan ukuran keberhasilan yang sama bagi setiap usaha dalam grup.</p></article>
-        <article><h3>Aset jangka panjang</h3><p>Memiliki dan merawat gedung serta peralatan, supaya usaha yang melayani pelanggan bisa fokus pada layanannya.</p></article>
-        <article><h3>Merek dan pengetahuan</h3><p>Menjaga merek, prosedur, dan pengetahuan para pendiri agar bisa dipelajari, diwariskan, dan dibawa ke tempat baru.</p></article>
-        <article><h3>Layanan bersama</h3><p>Mengelola fungsi pendukung seperti keuangan dan sumber daya manusia secara terpusat dan tercatat.</p></article>
+</g><line class="lead-line" x1="-15.9" y1="41.0" x2="50.1" y2="52" stroke="#C9A24B" stroke-width=".7"/><circle class="badge" cx="50.1" cy="52" r="1.9" fill="#2A0B12" stroke="#C9A24B" stroke-width=".8"/><g class="badge"><circle cx="-22" cy="40" r="6.2" fill="#2A0B12" stroke="#C9A24B" stroke-width=".9"/><text x="-22" y="42.4" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-weight="700" font-size="6.6" fill="#C9A24B">1</text></g><line class="lead-line" x1="143.8" y1="80.0" x2="92.8" y2="80" stroke="#C9A24B" stroke-width=".7"/><circle class="badge" cx="92.8" cy="80" r="1.9" fill="#2A0B12" stroke="#C9A24B" stroke-width=".8"/><g class="badge"><circle cx="150" cy="80" r="6.2" fill="#2A0B12" stroke="#C9A24B" stroke-width=".9"/><text x="150" y="82.4" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-weight="700" font-size="6.6" fill="#C9A24B">2</text></g><line class="lead-line" x1="64.0" y1="-1.8" x2="64" y2="19" stroke="#C9A24B" stroke-width=".7"/><circle class="badge" cx="64" cy="19" r="1.9" fill="#2A0B12" stroke="#C9A24B" stroke-width=".8"/><g class="badge"><circle cx="64" cy="-8" r="6.2" fill="#2A0B12" stroke="#C9A24B" stroke-width=".9"/><text x="64" y="-5.6" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-weight="700" font-size="6.6" fill="#C9A24B">3</text></g><line class="lead-line" x1="-16.5" y1="101.1" x2="20.8" y2="81.4" stroke="#C9A24B" stroke-width=".7"/><circle class="badge" cx="20.8" cy="81.4" r="1.9" fill="#2A0B12" stroke="#C9A24B" stroke-width=".8"/><g class="badge"><circle cx="-22" cy="104" r="6.2" fill="#2A0B12" stroke="#C9A24B" stroke-width=".9"/><text x="-22" y="106.4" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-weight="700" font-size="6.6" fill="#C9A24B">4</text></g></svg></figure>
+        <ol class="parts">
+          <li><span class="n" aria-hidden="true">1</span><div><b>Kaki kiri: AR, dari Arvi.</b><p>Pendiri, dan satu dari dua calon pemegang saham ARZAK.</p></div></li>
+          <li><span class="n" aria-hidden="true">2</span><div><b>Kaki kanan: ZAK, dari Zakki.</b><p>Pendiri, dan calon pemegang saham yang kedua. Satu kaki saja tidak membentuk huruf apa pun.</p></div></li>
+          <li><span class="n" aria-hidden="true">3</span><div><b>Puncak: tempat keduanya bertemu.</b><p>Kepemilikan ARZAK dirancang hanya untuk kami berdua. Mitra lain masuk di tingkat usaha yang kelak dinaungi, tidak di ARZAK.</p></div></li>
+          <li><span class="n" aria-hidden="true">4</span><div><b>Lengkung emas: yang kelak dinaungi.</b><p>Saham usaha, gedung dan peralatan, merek, dan cara kerja yang kami susun.</p></div></li>
+        </ol>
       </div>
     </div>
   </section>
 
-  <section class="block dark" id="usaha" aria-labelledby="usaha-judul">
-    <div class="wrap">
-      <h2 id="usaha-judul">Usaha yang bisa kami naungi</h2>
-      <p class="intro">Kami berawal dari kesehatan, tetapi tidak membatasi diri di sana. Ukurannya satu: usaha itu bisa tumbuh dengan standar dan sistem yang sama.</p>
-      <div class="biz">
-        <article class="card">
-          <img src="/foto/intro-ruang-perawatan.jpg" width="1800" height="1200" alt="Ruang perawatan Klinik Utama INTRO Dental dengan dua dental unit" loading="lazy" decoding="async">
-          <span class="status">Beroperasi</span>
-          <h3>Layanan kesehatan</h3>
-          <p class="body">Klinik gigi, klinik spesialis, dan layanan kesehatan lain yang bisa dijalankan dengan standar mutu yang terukur.</p>
-          <p class="now">Saat ini: Klinik Utama INTRO Dental, Bangkalan. <a href="https://introdental.id" rel="noopener">introdental.id</a></p>
-        </article>
-        <article class="card">
-          <img src="/foto/kreatif.jpg" width="1800" height="1200" alt="Kamera, lensa, laptop, dan ponsel di atas meja kayu" loading="lazy" decoding="async">
-          <span class="status soon">Dalam persiapan</span>
-          <h3>Pertumbuhan dan kreatif</h3>
-          <p class="body">Pemasaran, produksi kreatif, dan dukungan bisnis, untuk usaha dalam grup maupun klien di luar grup.</p>
-          <p class="now">Saat ini: Nata Arah.</p>
-        </article>
-        <article class="card">
-          <img src="/foto/properti.jpg" width="1800" height="1200" alt="Fasad gedung modern berlapis kisi-kisi kayu di bawah langit biru" loading="lazy" decoding="async">
-          <h3>Properti dan peralatan</h3>
-          <p class="body">Gedung, lahan, dan peralatan yang dipakai usaha grup, dimiliki untuk jangka panjang dan disewakan kepada usaha yang memakainya.</p>
-        </article>
-        <article class="card blank">
-          <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" class="big-mark" viewBox="0 0 128 112">
-<defs>
-  <clipPath id="bg-base"><rect x="-10" y="0" width="148" height="100"/></clipPath>
-  <clipPath id="bg-left"><rect x="-10" y="0" width="74" height="120"/></clipPath>
-  <clipPath id="bg-right"><rect x="64" y="0" width="74" height="120"/></clipPath>
-  <mask id="bg-ma" maskUnits="userSpaceOnUse" x="-10" y="-10" width="148" height="140">
-    <rect x="-10" y="-10" width="148" height="140" fill="#fff"/>
-    <path d="M 0 116 C 26 44, 102 44, 128 116" stroke="#000" stroke-width="20" fill="none" clip-path="url(#bg-left)"/>
-  </mask>
-  <mask id="bg-mr" maskUnits="userSpaceOnUse" x="-10" y="-10" width="148" height="140">
-    <rect x="-10" y="-10" width="148" height="140" fill="#fff"/>
-    <path d="M 16 116 L 64 26 L 112 116" stroke="#000" stroke-width="25" fill="none" stroke-linejoin="miter" clip-path="url(#bg-right)"/>
-  </mask>
-</defs>
-<g clip-path="url(#bg-base)">
-  <path d="M 16 116 L 64 26 L 112 116" stroke="#F7F1EA" stroke-width="17" fill="none" stroke-linejoin="miter" stroke-miterlimit="6" mask="url(#bg-ma)"/>
-  <path d="M 0 116 C 26 44, 102 44, 128 116" stroke="#C9A24B" stroke-width="11" fill="none" mask="url(#bg-mr)"/>
-</g>
-</svg>
-          <span class="status open">Terbuka</span>
-          <h3>Usaha berikutnya</h3>
-          <p class="body">Perusahaan di bidang lain yang kami dirikan sendiri, atau yang sahamnya kami beli dan ambil alih setelah valuasi.</p>
-        </article>
-      </div>
-      <p class="biz-note">Sebelum mendirikan atau mengambil alih sebuah usaha, kami menilai tiga hal: bisakah usaha itu dijalankan dengan standar yang terukur, apakah pembukuannya jelas, dan apakah kepercayaan pelanggannya layak dijaga. Setiap usaha berjalan di bawah badan usahanya sendiri; penataan struktur grup sedang berlangsung.</p>
+  <section class="wrap section" id="peran" aria-labelledby="peran-judul">
+    <div class="sec-head">
+      <p class="kicker">Peran</p>
+      <h2 id="peran-judul">Yang akan dikerjakan ARZAK setelah akta terbit</h2>
+      <p class="intro">PT Arzak Selalu Bersama masih dalam persiapan pendirian. Sampai aktanya terbit, setiap usaha kami berjalan di bawah badan usahanya sendiri.</p>
     </div>
-  </section>
-
-  <section class="block" id="intro" aria-labelledby="intro-judul">
-    <div class="wrap spot-grid">
-      <div>
-        <h2 id="intro-judul">Tempat standar kami pertama kali dibuktikan</h2>
-        <p class="intro">Klinik Utama INTRO Dental di Bangkalan adalah usaha pertama yang kami bangun. Cara kerja, mutu layanan, dan sistem yang kelak dipakai di seluruh grup diuji di sini lebih dulu.</p>
-        <div class="facts">
-          <div><b>2024</b><span>Mulai melayani pasien</span></div>
-          <div><b>Bangkalan</b><span>Madura, Jawa Timur</span></div>
-        </div>
-        <a class="spot-link" href="https://introdental.id" rel="noopener">Kunjungi introdental.id</a>
-      </div>
-      <figure class="collage">
-        <img class="c1" src="/foto/intro-lobi.jpg" width="1800" height="1200" alt="Ruang tunggu dan meja resepsionis Klinik Utama INTRO Dental" loading="lazy" decoding="async">
-        <img src="/foto/intro-ruang-perawatan.jpg" width="1800" height="1200" alt="Ruang perawatan dengan dua dental unit" loading="lazy" decoding="async">
-        <img src="/foto/intro-radiologi.jpg" width="1400" height="933" alt="Alat rontgen panoramik di ruang radiologi" loading="lazy" decoding="async">
-        <figcaption>Foto: Klinik Utama INTRO Dental, Bangkalan</figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <section class="block principles" id="prinsip" aria-labelledby="prinsip-judul">
-    <div class="wrap">
-      <h2 id="prinsip-judul">Cara kami tumbuh</h2>
-      <div class="rows">
-        <div class="row"><h3>Pelan, supaya kepercayaan terjaga</h3><p>Tempat baru dibuka hanya setelah standar di tempat sebelumnya terbukti. Setiap cabang minimal setara dengan yang pertama.</p></div>
-        <div class="row"><h3>Sistem, bukan satu orang</h3><p>Pengetahuan pendiri dituangkan menjadi standar, jabatan, dan prosedur, sehingga usaha tetap berjalan baik tanpa harus selalu ditunggui.</p></div>
-        <div class="row"><h3>Teknologi membantu, manusia memutuskan</h3><p>Teknologi kami pakai untuk kerja yang rapi dan terukur. Keputusan klinis selalu ada di tangan tenaga kesehatan.</p></div>
-        <div class="row"><h3>Data tetap di tempatnya</h3><p>Setiap usaha menjaga data pelanggannya sendiri dan memakainya hanya sesuai aturan pelindungan data pribadi.</p></div>
-        <div class="row"><h3>Diukur dengan angka nyata</h3><p>Setiap langkah punya ukuran sebelum dan sesudah, supaya kami tahu mana yang benar-benar berhasil.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="own" id="kepemilikan" aria-labelledby="kepemilikan-judul">
-    <img src="/foto/suramadu.jpg" width="1600" height="2400" alt="" loading="lazy" decoding="async">
-    <div class="wrap">
-      <p class="bridge">Jembatan Suramadu menghubungkan Surabaya, tempat ARZAK berkedudukan, dengan Madura, tempat usaha pertama kami tumbuh.</p>
-      <h2 id="kepemilikan-judul" class="statement">Perusahaan keluarga. Kepemilikannya hanya ada pada kedua pendirinya, dan dirancang untuk tetap begitu.</h2>
-      <p class="fine">Saat ARZAK mendirikan atau mengambil alih sebuah usaha, kepemilikan bersama dengan pihak lain hanya terjadi di tingkat usaha tersebut, tidak di ARZAK. Halaman ini adalah profil perusahaan; ARZAK tidak menawarkan saham dan tidak menghimpun dana dari masyarakat.</p>
-    </div>
-    <p class="credit">Jembatan Suramadu. Foto: Ahmad Nabili / Unsplash</p>
-  </section>
-
-  <section class="block" id="perjalanan" aria-labelledby="perjalanan-judul">
-    <div class="wrap split">
-      <div>
-        <h2 id="perjalanan-judul">Perjalanan sejauh ini</h2>
-        <p class="intro">Langkah yang sudah berjalan, dan yang sedang kami siapkan.</p>
-      </div>
-      <ol class="journey">
-        <li><span class="when">2024</span><p>Klinik Utama INTRO Dental mulai melayani pasien di Bangkalan.</p></li>
-        <li><span class="when">2026</span><p>Arah grup dan peran perusahaan induk dirumuskan.</p></li>
-        <li class="plan"><span class="when">Berikutnya</span><p>Pendirian badan hukum grup dan penataan usaha di bawahnya.</p></li>
-        <li class="plan"><span class="when">Seterusnya</span><p>Cabang berikutnya, ketika standarnya siap disalin.</p></li>
+    <div class="reg-grid">
+      <ol class="register">
+        <li>Memegang saham perusahaan-perusahaan dalam grup.</li>
+        <li>Mendirikan usaha baru, atau membeli saham perusahaan yang sejalan setelah valuasi dan pemeriksaan menyeluruh.</li>
+        <li>Memiliki gedung dan peralatan, lalu menyewakannya kepada usaha yang memakainya.</li>
+        <li>Menjaga merek dan prosedur yang kami susun supaya bisa dibawa ke tempat baru.</li>
+        <li>Menetapkan standar mutu yang sama untuk setiap usaha, mulai dari cara menyambut pelanggan sampai cara mencatat keuangan.</li>
+        <li>Menyediakan layanan keuangan dan SDM bersama, dengan perjanjian tertulis untuk setiap usaha yang memakainya.</li>
       </ol>
+      <aside class="not" aria-labelledby="not-judul">
+        <h3 id="not-judul">Yang tidak dilakukan ARZAK</h3>
+        <ul>
+          <li><b>Tidak</b> menjalankan layanan klinik sehari-hari.</li>
+          <li><b>Tidak</b> memegang atau membaca data pasien.</li>
+          <li><b>Tidak</b> menawarkan saham atau menghimpun dana dari masyarakat.</li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <section class="wrap section essay" id="usaha-pertama" aria-labelledby="usaha-judul">
+    <div class="sec-head">
+      <p class="kicker">Usaha pertama para pendiri</p>
+      <h2 id="usaha-judul">Klinik Utama INTRO Dental, Bangkalan</h2>
+    </div>
+    <div class="essay-grid">
+      <figure>
+        <img src="/foto/intro-lobi-potong.jpg" width="1753" height="1307" alt="Ruang tunggu dan meja resepsionis Klinik Utama INTRO Dental, dengan logo INTRO di dinding" loading="lazy" decoding="async">
+        <figcaption>Ruang tunggu Klinik Utama INTRO Dental. Foto: INTRO Dental.</figcaption>
+      </figure>
+      <div class="side">
+        <p class="drop">Klinik ini kami buka di Bangkalan pada 2024. Ia berjalan di bawah badan usahanya sendiri, terpisah dari ARZAK. Di sinilah kami pertama kali menguji cara kerja yang ingin kami bawa ke usaha berikutnya.</p>
+        <p>Usaha baru harus lolos tiga pertanyaan lebih dulu: bisakah ia dijalankan dengan standar yang sama tanpa harus kami tunggui setiap hari, apakah pembukuannya jelas, dan apakah kepercayaan pelanggannya layak dijaga.</p>
+        <figure class="small">
+          <img src="/foto/intro-ruang-potong.jpg" width="1800" height="1200" alt="Ruang perawatan dengan dua dental unit dan monitor di dinding" loading="lazy" decoding="async">
+          <figcaption>Ruang perawatan. Foto: INTRO Dental.</figcaption>
+        </figure>
+        <p style="margin-top:1.25rem">Mencari perawatan gigi? <a class="go" href="https://introdental.id" rel="noopener">introdental.id</a></p>
+      </div>
+    </div>
+    <div class="fields">
+      <h3>Bidang yang terbuka</h3>
+      <p>Layanan kesehatan; pemasaran dan produksi kreatif, lewat Nata Arah yang sedang dipersiapkan; gedung dan peralatan; serta usaha lain yang lolos tiga pertanyaan di atas.</p>
+    </div>
+  </section>
+
+  <section class="principle section" id="prinsip" aria-labelledby="prinsip-judul">
+    <div class="wrap">
+      <p class="kicker">Prinsip</p>
+      <h2 id="prinsip-judul" class="big">Pelan, supaya kepercayaan terjaga.</h2>
+      <p class="big-note">Tempat baru hanya dibuka setelah standar di tempat sebelumnya terbukti, dan setiap cabang minimal setara dengan yang pertama.</p>
+      <div class="two">
+        <div><h3>Sistem, bukan satu orang</h3><p>Pekerjaan rutin dipegang jabatan dan prosedur tertulis. Teknologi membantu mencatat dan mengukur; keputusan klinis tetap di tangan tenaga kesehatan.</p></div>
+        <div><h3>Data tetap di tempatnya</h3><p>Data pasien milik klinik dan tidak dibagikan ke ARZAK. Setiap usaha menjaga data pelanggannya sendiri sesuai aturan pelindungan data pribadi.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap section" id="kronologi" aria-labelledby="kron-judul">
+    <div class="sec-head"><p class="kicker">Kronologi</p><h2 id="kron-judul">Sejauh ini</h2></div>
+    <div class="years">
+      <div><b>2024</b><p>Klinik Utama INTRO Dental dibuka di Bangkalan.</p></div>
+      <div><b>2026</b><p>Arah grup dan peran perusahaan induk dirumuskan.</p></div>
+      <div class="later"><b>Berikutnya</b><p>Pendirian PT Arzak Selalu Bersama, lalu usaha atau cabang berikutnya ketika standarnya siap disalin.</p></div>
     </div>
   </section>
 </main>
 
-<footer>
+<footer class="dark colophon" id="catatan" aria-labelledby="catatan-judul">
   <div class="wrap">
-    <div class="foot">
-      <div>
-        <svg role="img" aria-label="ARZAK Selalu Bersama" xmlns="http://www.w3.org/2000/svg" focusable="false" class="logo" viewBox="0 0 391 112">
+    <div class="col-grid">
+      <div class="col-id"><svg xmlns="http://www.w3.org/2000/svg" class="logo" role="img" aria-label="ARZAK Selalu Bersama" viewBox="0 0 391 112">
 <g>
 <defs>
   <clipPath id="ft-base"><rect x="-10" y="0" width="148" height="100"/></clipPath>
@@ -671,30 +453,39 @@ footer { background: var(--wine-950); color: var(--on-dark-muted); font-size: .9
 </g>
 <path transform="translate(158 72)" d="M0.704 0.0 17.152 -47.68H28.416L44.864000000000004 0.0H35.408L31.984 -10.208H13.552L10.112 0.0ZM16.032 -17.888H29.472L21.584 -41.632H23.984ZM53.984 0.0V-47.68H71.76Q76.624 -47.68 80.36 -45.928Q84.096 -44.176 86.21600000000001 -40.808Q88.336 -37.44 88.336 -32.608000000000004Q88.336 -27.696 85.99199999999999 -24.232Q83.648 -20.768 79.68 -19.104L90.624 0.0H80.768L69.024 -20.928L74.688 -17.6H62.704V0.0ZM62.704 -25.28H71.872Q74.224 -25.28 75.952 -26.200000000000003Q77.68 -27.12 78.648 -28.776000000000003Q79.616 -30.432000000000002 79.616 -32.624Q79.616 -34.864 78.648 -36.512Q77.68 -38.160000000000004 75.952 -39.08Q74.224 -40.0 71.872 -40.0H62.704ZM96.432 0.0V-6.864L119.52000000000001 -40.0H97.792V-47.68H130.608V-40.816L107.584 -7.68H131.232V0.0ZM136.64000000000001 0.0 153.08800000000002 -47.68H164.352L180.8 0.0H171.344L167.92000000000002 -10.208H149.488L146.048 0.0ZM151.96800000000002 -17.888H165.40800000000002L157.52 -41.632H159.92000000000002ZM189.92 0.0V-47.68H198.64V-22.816L196.28799999999998 -23.68L216.59199999999998 -47.68H227.504L208.528 -25.12L209.024 -31.312L228.07999999999998 0.0H217.856L205.05599999999998 -20.992L198.64 -13.392V0.0Z" fill="#F7F1EA"/>
 <path transform="translate(160 100)" d="M5.239 0.186Q4.14625 0.186 3.2201250000000003 -0.22087500000000002Q2.294 -0.62775 1.639125 -1.3446250000000002Q0.98425 -2.0615 0.6819999999999999 -2.98375L2.22425 -3.63475Q2.64275 -2.573 3.4526250000000003 -1.995625Q4.2625 -1.41825 5.3165 -1.41825Q5.9365 -1.41825 6.397625 -1.615875Q6.85875 -1.8135 7.1145 -2.166125Q7.3702499999999995 -2.51875 7.3702499999999995 -2.9915Q7.3702499999999995 -3.61925 7.01375 -3.995125Q6.65725 -4.3709999999999996 5.95975 -4.58025L3.78975 -5.26225Q2.48775 -5.66525 1.809625 -6.498375Q1.1315 -7.3315 1.1315 -8.4475Q1.1315 -9.41625 1.608125 -10.156375Q2.08475 -10.8965 2.9295 -11.315Q3.77425 -11.7335 4.85925 -11.7335Q5.89775 -11.7335 6.754125 -11.365375Q7.6105 -10.99725 8.218875 -10.36175Q8.82725 -9.72625 9.114 -8.88925L7.595 -8.2305Q7.24625 -9.145 6.529375 -9.637125000000001Q5.8125 -10.12925 4.867 -10.12925Q4.2935 -10.12925 3.855625 -9.935500000000001Q3.41775 -9.74175 3.1775 -9.381375Q2.93725 -9.021 2.93725 -8.5405Q2.93725 -7.9825 3.29375 -7.5485Q3.6502499999999998 -7.1145 4.37875 -6.88975L6.4014999999999995 -6.262Q7.781 -5.83575 8.474625 -5.053Q9.16825 -4.27025 9.16825 -3.1155Q9.16825 -2.14675 8.668375000000001 -1.40275Q8.1685 -0.65875 7.285 -0.23637499999999997Q6.4014999999999995 0.186 5.239 0.186ZM16.182 0.0V-11.5475H23.78475V-9.92H18.003249999999998V-6.603H23.47475V-4.9755H18.003249999999998V-1.6275H23.78475V0.0ZM30.4575 0.0V-11.5475H32.27875V-1.6275H37.2775V0.0ZM42.748999999999995 0.0 46.809999999999995 -11.5475H49.073L53.134 0.0H51.173249999999996L50.28975 -2.5885H45.59325L44.702 0.0ZM46.128 -4.216H49.7395L47.68575 -10.261H48.19725ZM59.458 0.0V-11.5475H61.27925V-1.6275H66.27799999999999V0.0ZM77.097 0.186Q75.80274999999999 0.186 74.803 -0.35650000000000004Q73.80324999999999 -0.899 73.24137499999999 -1.8445Q72.67949999999999 -2.79 72.67949999999999 -3.999V-11.5475H74.50075V-4.0765Q74.50075 -3.317 74.834 -2.7279999999999998Q75.16725 -2.139 75.752375 -1.809625Q76.33749999999999 -1.48025 77.097 -1.48025Q77.86425 -1.48025 78.4455 -1.809625Q79.02674999999999 -2.139 79.35999999999999 -2.7279999999999998Q79.69324999999999 -3.317 79.69324999999999 -4.0765V-11.5475H81.5145V-3.999Q81.5145 -2.79 80.952625 -1.8445Q80.39075 -0.899 79.394875 -0.35650000000000004Q78.399 0.186 77.097 0.186ZM96.44099999999999 0.0V-11.5475H101.30799999999999Q102.39299999999999 -11.5475 103.17962499999999 -11.163875Q103.96624999999999 -10.78025 104.38862499999999 -10.078875Q104.81099999999999 -9.3775 104.81099999999999 -8.40875Q104.81099999999999 -7.5795 104.38087499999999 -6.88975Q103.95074999999999 -6.2 103.05949999999999 -5.78925L103.05174999999998 -6.56425Q103.85 -6.262 104.34212499999998 -5.789249999999999Q104.83424999999998 -5.3165 105.05899999999998 -4.727499999999999Q105.28374999999998 -4.1385 105.28374999999998 -3.47975Q105.28374999999998 -1.85225 104.22587499999999 -0.926125Q103.16799999999999 0.0 101.31575 0.0ZM98.26225 -1.6275H101.45524999999999Q102.36974999999998 -1.6275 102.916125 -2.127375Q103.46249999999999 -2.62725 103.46249999999999 -3.472Q103.46249999999999 -4.31675 102.916125 -4.824375Q102.36974999999998 -5.332 101.45524999999999 -5.332H98.26225ZM98.26225 -6.93625H101.34674999999999Q102.09074999999999 -6.93625 102.54024999999999 -7.366375Q102.98974999999999 -7.7965 102.98974999999999 -8.48625Q102.98974999999999 -9.18375 102.54024999999999 -9.57125Q102.09074999999999 -9.95875 101.34674999999999 -9.95875H98.26225ZM112.12699999999998 0.0V-11.5475H119.72974999999998V-9.92H113.94824999999999V-6.603H119.41974999999998V-4.9755H113.94824999999999V-1.6275H119.72974999999998V0.0ZM126.40249999999997 0.0V-11.5475H130.59524999999996Q131.75775 -11.5475 132.64512499999998 -11.117375Q133.53249999999997 -10.68725 134.03237499999997 -9.877375Q134.53224999999998 -9.0675 134.53224999999998 -7.936Q134.53224999999998 -6.73475 133.93937499999998 -5.886125Q133.34649999999996 -5.0375 132.33899999999997 -4.65L135.00499999999997 0.0H132.92799999999997L130.09149999999997 -5.0375L131.28499999999997 -4.34H128.22374999999997V0.0ZM128.22374999999997 -5.9675H130.634Q131.26174999999998 -5.9675 131.72674999999998 -6.211625Q132.19174999999998 -6.45575 132.45137499999998 -6.901375Q132.71099999999998 -7.3469999999999995 132.71099999999998 -7.94375Q132.71099999999998 -8.54825 132.45137499999998 -8.989999999999998Q132.19174999999998 -9.43175 131.72674999999998 -9.675875Q131.26174999999998 -9.92 130.634 -9.92H128.22374999999997ZM145.545 0.186Q144.45225 0.186 143.52612499999998 -0.22087500000000002Q142.6 -0.62775 141.945125 -1.3446250000000002Q141.29025 -2.0615 140.98799999999997 -2.98375L142.53025 -3.63475Q142.94875 -2.573 143.758625 -1.995625Q144.56849999999997 -1.41825 145.62249999999997 -1.41825Q146.24249999999998 -1.41825 146.703625 -1.615875Q147.16474999999997 -1.8135 147.42049999999998 -2.166125Q147.67624999999998 -2.51875 147.67624999999998 -2.9915Q147.67624999999998 -3.61925 147.31975 -3.995125Q146.96325 -4.3709999999999996 146.26574999999997 -4.58025L144.09574999999998 -5.26225Q142.79375 -5.66525 142.11562499999997 -6.498375Q141.43749999999997 -7.3315 141.43749999999997 -8.4475Q141.43749999999997 -9.41625 141.91412499999998 -10.156375Q142.39075 -10.8965 143.2355 -11.315Q144.08024999999998 -11.7335 145.16525 -11.7335Q146.20374999999999 -11.7335 147.06012499999997 -11.365375Q147.91649999999998 -10.99725 148.52487499999998 -10.36175Q149.13324999999998 -9.72625 149.42 -8.88925L147.90099999999998 -8.2305Q147.55225 -9.145 146.835375 -9.637125000000001Q146.11849999999998 -10.12925 145.17299999999997 -10.12925Q144.59949999999998 -10.12925 144.161625 -9.935500000000001Q143.72375 -9.74175 143.4835 -9.381375Q143.24325 -9.021 143.24325 -8.5405Q143.24325 -7.9825 143.59974999999997 -7.5485Q143.95624999999998 -7.1145 144.68474999999998 -6.88975L146.70749999999998 -6.262Q148.087 -5.83575 148.780625 -5.053Q149.47424999999998 -4.27025 149.47424999999998 -3.1155Q149.47424999999998 -2.14675 148.97437499999998 -1.40275Q148.47449999999998 -0.65875 147.59099999999998 -0.23637499999999997Q146.70749999999998 0.186 145.545 0.186ZM155.46499999999997 0.0 159.52599999999998 -11.5475H161.78899999999996L165.84999999999997 0.0H163.88924999999998L163.00574999999998 -2.5885H158.30924999999996L157.41799999999998 0.0ZM158.84399999999997 -4.216H162.45549999999997L160.40174999999996 -10.261H160.91324999999998ZM172.17399999999998 0.0V-11.5475H173.879L178.21124999999998 -5.5335H177.36649999999997L181.629 -11.5475H183.33399999999997V0.0H181.51274999999998V-9.38525L182.19474999999997 -9.19925L177.84699999999998 -3.255H177.66099999999997L173.39849999999998 -9.19925L173.99524999999997 -9.38525V0.0ZM189.658 0.0 193.719 -11.5475H195.98199999999997L200.04299999999998 0.0H198.08225L197.19875 -2.5885H192.50224999999998L191.611 0.0ZM193.03699999999998 -4.216H196.64849999999998L194.59474999999998 -10.261H195.10625Z" fill="#D9C3B5"/>
-</svg>
-        <p>PT Arzak Selalu Bersama, dalam persiapan pendirian.</p>
-        <p>Surabaya, Jawa Timur</p>
-      </div>
-      <div>
-        <p class="label">Klinik</p>
-        <p>Untuk perawatan gigi dan janji temu, kunjungi <a href="https://introdental.id" rel="noopener">introdental.id</a>.</p>
-      </div>
-      <div>
-        <p class="label">Foto</p>
-        <ul class="credits">
-          <li>Jembatan Suroboyo: Rizki Oceano / Unsplash</li>
-          <li>Jembatan Suramadu: Ahmad Nabili / Unsplash</li>
-          <li>Fasad gedung: Amir Hosseini / Unsplash</li>
-          <li>Meja kerja: Anna Spoljar / Unsplash</li>
-          <li>Ruang klinik: Klinik Utama INTRO Dental</li>
-        </ul>
-      </div>
+</svg><h2 id="catatan-judul">Status dan catatan edisi</h2><p class="ed-line">Edisi pertama, November 2026</p></div>
+      <dl class="notes"><dt>Status badan hukum</dt>
+          <dd>PT Arzak Selalu Bersama sedang dalam persiapan pendirian dan akan berkedudukan di Surabaya, Jawa Timur.</dd><dt>Bukan penawaran</dt>
+          <dd>Halaman ini adalah profil perusahaan. ARZAK tidak menawarkan saham dan tidak menghimpun dana dari masyarakat.</dd></dl>
+      <dl class="notes"><dt>Korespondensi</dt>
+          <dd>Untuk bank, notaris, calon mitra atau target pengambilalihan, serta calon dokter dan staf senior. Alamat korespondensi resmi dicantumkan di sini setelah badan hukum berdiri.</dd><dt>Pasien</dt>
+          <dd>Untuk perawatan gigi dan janji temu, kunjungi <a href="https://introdental.id" rel="noopener">introdental.id</a>.</dd><dt>Foto dan huruf</dt>
+          <dd>Jembatan Suramadu: Sakurai Midori, Wikimedia Commons, <a href="https://creativecommons.org/licenses/by/3.0/" rel="noopener license">CC BY 3.0</a>, dipotong dan warnanya disesuaikan. Ruang klinik: Klinik Utama INTRO Dental. Huruf Plus Jakarta Sans dan Instrument Serif, SIL Open Font License.</dd></dl>
     </div>
-    <div class="legal">
-      <span>&copy; 2026 ARZAK</span>
-      <span>Profil perusahaan, bukan penawaran efek atau ajakan berinvestasi.</span>
-    </div>
+    <div class="legal"><span>&copy; 2026 ARZAK</span><span>Profil perusahaan, bukan penawaran efek atau ajakan berinvestasi.</span></div>
   </div>
 </footer>
+
+<script>
+(() => {
+  const bar = document.querySelector('.bar'), top = document.querySelector('.plate-name');
+  if ('IntersectionObserver' in window && bar && top) {
+    new IntersectionObserver(([e]) => bar.classList.toggle('stuck', !e.isIntersecting)).observe(top);
+    const links = [...bar.querySelectorAll('nav a')];
+    const map = new Map(links.map(a => [a.getAttribute('href').slice(1), a]));
+    const spy = new IntersectionObserver((es) => {
+      es.forEach(e => { if (e.isIntersecting) { links.forEach(a => a.removeAttribute('aria-current')); const a = map.get(e.target.id); if (a) a.setAttribute('aria-current', 'location'); } });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    ['judul', ...map.keys(), 'prinsip', 'kronologi'].forEach(id => { const el = document.getElementById(id); if (el) spy.observe(el); });
+  }
+})();
+(() => {
+  const s = document.querySelector('.anat');
+  if (!s || !('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  s.classList.add('armed');
+  const io = new IntersectionObserver((es) => { es.forEach(e => { if (e.isIntersecting) { s.classList.add('on'); io.disconnect(); } }); }, { threshold: .35 });
+  io.observe(s);
+})();
+</script>
 </body>
 </html>
