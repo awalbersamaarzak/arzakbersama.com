@@ -25,22 +25,14 @@ jobs:
           python - <<'PY'
           import io, pathlib, urllib.request
           from PIL import Image, ImageOps, ImageEnhance
-          U = 'https://images.unsplash.com/'
           I = 'https://introdental.id/uploads/gallery/'
           # nama file, sumber, lebar maksimum (px)
           FOTO = [
-              ('hero-jembatan-suroboyo',  U + 'photo-1727402528001-9d2ea45d0993?w=2400&q=90&fm=jpg', 2400),  # Rizki Oceano / Unsplash
-              ('suramadu',                U + 'photo-1542218773294-ff28be7e6451?w=1600&q=90&fm=jpg', 1600),  # Ahmad Nabili / Unsplash
-              ('properti',                U + 'photo-1615406020658-6c4b805f1f30?w=1800&q=90&fm=jpg', 1800),  # Amir Hosseini / Unsplash
-              ('kreatif',                 U + 'photo-1769689268229-3e9c9ddaf1ee?w=1800&q=90&fm=jpg', 1800),  # Anna Spoljar / Unsplash
-              ('intro-ruang-perawatan',   I + '1766033792_da64e3f6a7adcbc8fb90.jpeg', 1800),                 # Klinik Utama INTRO Dental
-              ('intro-lobi',              I + '1766034173_cca6f408b66af8667fce.jpeg', 1800),                 # Klinik Utama INTRO Dental
-              ('intro-radiologi',         I + '1766034279_b13e7bfc8f5c37d89872.jpeg', 1400),                 # Klinik Utama INTRO Dental
-              # versi 2: foto Suramadu lanskap (Sakurai Midori, Wikimedia Commons, CC BY 3.0)
-              ('suramadu-lanskap',        'https://commons.wikimedia.org/wiki/Special:FilePath/Suramadu_Bridge_5.JPG?width=2400', 2400, None, 'hangat'),  # dipotong & warna dihangatkan (wajib disebut, CC BY)
-              # versi 2: foto klinik dipotong bagian tengah supaya lengkung lensa di tepi hilang
-              ('intro-lobi-potong',       I + '1766034173_cca6f408b66af8667fce.jpeg', 1800, (0.34, 0.12, 0.93, 0.78)),  # tanpa banner merek pihak ketiga
-              ('intro-ruang-potong',      I + '1766033792_da64e3f6a7adcbc8fb90.jpeg', 1800, (0.14, 0.10, 0.86, 0.82)),
+              # Jembatan Suramadu — Sakurai Midori, Wikimedia Commons, CC BY 3.0 (dipotong & warna dihangatkan; perubahan wajib disebut)
+              ('suramadu-lanskap',   'https://commons.wikimedia.org/wiki/Special:FilePath/Suramadu_Bridge_5.JPG?width=2400', 2400, None, 'hangat'),
+              # Klinik Utama INTRO Dental — dipotong bagian tengah supaya lengkung lensa di tepi dan banner merek pihak ketiga hilang
+              ('intro-lobi-potong',  I + '1766034173_cca6f408b66af8667fce.jpeg', 1800, (0.34, 0.12, 0.93, 0.78)),
+              ('intro-ruang-potong', I + '1766033792_da64e3f6a7adcbc8fb90.jpeg', 1800, (0.24, 0.12, 0.80, 0.80)),
           ]
           out = pathlib.Path('foto'); out.mkdir(exist_ok=True)
           for nama, url, lebar, *potong in FOTO:
@@ -60,11 +52,16 @@ jobs:
               # disimpan tanpa EXIF: lokasi GPS dan data kamera tidak ikut
               im.save(out / f'{nama}.jpg', 'JPEG', quality=80, optimize=True, progressive=True)
               print(f'{nama}: {im.size[0]}x{im.size[1]}, {(out / f"{nama}.jpg").stat().st_size // 1024} KB')
+          # foto yang tidak ada lagi di daftar dihapus dari folder foto/
+          dipakai = {f'{f[0]}.jpg' for f in FOTO}
+          for f in out.glob('*.jpg'):
+              if f.name not in dipakai:
+                  f.unlink(); print('hapus', f.name)
           PY
       - name: Simpan ke repo
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add foto
+          git add -A foto
           git diff --cached --quiet || git commit -m "Foto situs (diunduh dan dikecilkan otomatis)"
           git push
