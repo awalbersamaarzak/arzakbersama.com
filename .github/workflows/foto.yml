@@ -28,8 +28,9 @@ jobs:
           I = 'https://introdental.id/uploads/gallery/'
           # nama file, sumber, lebar maksimum (px)
           FOTO = [
-              # Jembatan Suramadu — Sakurai Midori, Wikimedia Commons, CC BY 3.0 (dipotong & warna dihangatkan; perubahan wajib disebut)
-              ('suramadu-lanskap',   'https://commons.wikimedia.org/wiki/Special:FilePath/Suramadu_Bridge_5.JPG?width=2400', 2400, None, 'hangat'),
+              # Jembatan Suramadu — Sakurai Midori, Wikimedia Commons, CC BY 3.0 (diperkecil & warna dihangatkan; perubahan wajib disebut)
+              # dipakai sebagai foto kecil "Aslinya" di langkah 02 Peta ARZAK
+              ('suramadu-kecil',     'https://commons.wikimedia.org/wiki/Special:FilePath/Suramadu_Bridge_5.JPG?width=2400', 960, None, 'hangat'),
               # Klinik Utama INTRO Dental — dipotong bagian tengah supaya lengkung lensa di tepi dan banner merek pihak ketiga hilang
               ('intro-lobi-potong',  I + '1766034173_cca6f408b66af8667fce.jpeg', 1800, (0.34, 0.12, 0.93, 0.78)),
               ('intro-ruang-potong', I + '1766033792_da64e3f6a7adcbc8fb90.jpeg', 1800, (0.24, 0.12, 0.80, 0.80)),
