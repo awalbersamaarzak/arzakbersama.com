@@ -4,13 +4,17 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ARZAK — Selalu Bersama</title>
-<meta name="description" content="ARZAK berasal dari nama dua dokter gigi, Arvi dan Zakki. PT Arzak Selalu Bersama sedang didirikan sebagai perusahaan induk keluarga mereka.">
+<meta name="description" content="ARZAK berasal dari nama dua dokter gigi, Arvi dan Zakki. PT Arzak Selalu Bersama (dalam persiapan pendirian) disiapkan sebagai perusahaan induk keluarga mereka.">
 <meta name="theme-color" content="#F7F1EA">
 <link rel="canonical" href="https://arzakbersama.com/">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preload" href="/plus-jakarta-sans.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/instrument-serif.woff2" as="font" type="font/woff2" crossorigin>
+<script>
+/* Peta 3D hanya untuk peramban yang mendukung WebGL dan tidak meminta gerak dikurangi; selain itu tampil gambar diam. */
+if (!matchMedia('(prefers-reduced-motion: reduce)').matches && 'WebGLRenderingContext' in window && 'IntersectionObserver' in window) document.documentElement.classList.add('peta-live');
+</script>
 
 <meta property="og:type" content="website">
 <meta property="og:locale" content="id_ID">
@@ -147,16 +151,90 @@ h2, h3, .lead h1 { text-wrap: balance; }
 .dek p { font-size: clamp(1.0625rem, 1.4vw, 1.1875rem); line-height: 1.65; max-width: 32rem; }
 .dek p + p { margin-top: 1rem; color: var(--muted); }
 
-/* ===== Photo plate ===== */
-.photo { margin-bottom: clamp(3.5rem, 8vw, 6rem); }
-.photo img { width: 100%; aspect-ratio: 21 / 9; object-fit: cover; object-position: 50% 55%; }
-@media (max-width: 40rem) { .photo img { aspect-ratio: 4 / 3; object-position: 32% 50%; } }
-.photo figcaption {
-  display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(1rem, 5vw, 5rem);
-  padding-top: .75rem; font-size: .9375rem; color: var(--muted);
+/* ===== Peta ARZAK (maket 3D; tanpa WebGL atau dengan gerak dikurangi = gambar diam + daftar) ===== */
+.peta { margin-bottom: clamp(3.5rem, 8vw, 6rem); }
+.peta-head { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; border-bottom: 1px solid var(--rule-strong); padding-bottom: .9rem; }
+.peta-head h2 { font-size: clamp(1.5rem, 2.6vw, 2.25rem); font-weight: 700; letter-spacing: -.02em; }
+.peta-head .meta { color: var(--muted); font-size: .9375rem; display: flex; gap: 1.25rem; align-items: baseline; }
+.peta-skip { display: none; font-weight: 600; color: var(--burg-ink); }
+.peta-stage { position: relative; width: 100%; max-width: var(--wrap); margin: 1.5rem auto 0; padding-inline: var(--gutter); }
+.peta-stage img { width: 100%; aspect-ratio: 2 / 1; object-fit: cover; background: var(--paper-2); }
+@media (max-width: 34rem) { .peta-stage img { aspect-ratio: 3 / 4; } }
+.peta-stage canvas, .peta-labels, .peta-ticks { display: none; }
+.peta-steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0 clamp(1rem, 3vw, 2.5rem); margin-top: 1.25rem; }
+.peta-steps > li { padding-block: 1rem 1.1rem; border-top: 2px solid var(--ink); }
+.peta-steps > li.intro { grid-column: 1 / -1; border-top: 0; padding-top: 0; }
+.peta-steps .k { font-size: .875rem; font-weight: 700; color: var(--burg); font-variant-numeric: tabular-nums; }
+.peta-steps h3 { font-size: 1.1875rem; font-weight: 750; letter-spacing: -.01em; line-height: 1.25; margin-top: .3rem; }
+.peta-steps .intro h3 { font-family: var(--serif); font-weight: 400; font-size: clamp(1.5rem, 2.6vw, 2.1rem); letter-spacing: 0; line-height: 1.1; }
+.peta-steps p { margin-top: .4rem; color: var(--muted); font-size: .9875rem; line-height: 1.55; }
+.peta-steps .only-live { display: none; }
+.legend { display: flex; flex-wrap: wrap; gap: .35rem 1.25rem; margin-top: .75rem; font-size: .875rem; color: var(--ink); }
+.legend span { display: inline-flex; align-items: center; gap: .5rem; }
+.legend i { width: 1.1rem; height: .8rem; display: inline-block; }
+.legend .solid i { background: #B9A58A; border: 1px solid rgba(38, 22, 26, .35); }
+.legend .plan i { border: 2px dashed var(--gold-deep); background: rgba(201, 162, 75, .12); }
+.aslinya { margin-top: .9rem; }
+.aslinya img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; object-position: 50% 55%; }
+.aslinya figcaption { font-size: .8125rem; color: var(--muted); margin-top: .35rem; line-height: 1.4; }
+@media (max-width: 56rem) { .peta-steps { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 34rem) { .peta-steps { grid-template-columns: 1fr; } }
+
+.peta-live .peta { margin-bottom: 0; }
+.peta-live .peta-track { position: relative; height: 420vh; height: calc(100svh + 4 * 80svh); }
+@media (max-width: 40rem) { .peta-live .peta-track { height: 360vh; height: calc(100svh + 4 * 65svh); } }
+.peta-live .peta-pin {
+  position: sticky; top: var(--bar-h, 3.5rem); height: calc(100vh - var(--bar-h, 3.5rem)); height: calc(100svh - var(--bar-h, 3.5rem)); overflow: hidden;
+  background: radial-gradient(110% 85% at 62% 38%, #FCF8F3 0%, var(--paper) 46%, var(--paper-2) 100%);
+  border-block: 1px solid var(--rule);
 }
-.photo figcaption .cr { font-size: .875rem; text-align: right; }
-@media (max-width: 56rem) { .photo figcaption { grid-template-columns: 1fr; gap: .25rem; } .photo figcaption .cr { text-align: left; } }
+.peta-live .peta-pin::before { content: ""; position: absolute; z-index: 2; inset: 0 0 auto 0; height: 7.5rem; pointer-events: none; background: linear-gradient(180deg, rgba(247, 241, 234, .92) 0%, rgba(247, 241, 234, .7) 45%, rgba(247, 241, 234, 0) 100%); }
+.peta-live .peta-top { position: absolute; z-index: 3; top: 1.1rem; left: 0; right: 0; pointer-events: none; }
+.peta-live .peta-head { border-bottom: 0; }
+.peta-live .peta-head a, .peta-live .peta-head h2 { pointer-events: auto; }
+.peta-live .peta-skip { display: inline; }
+.peta-live .peta-stage { position: absolute; inset: 0; margin: 0; max-width: none; padding: 0; }
+.peta-live .peta-stage img { position: absolute; inset: 0; width: 100%; height: 100%; aspect-ratio: auto; background: none; transition: opacity .7s ease; }
+.peta-live .peta-stage canvas { display: block; position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; transition: opacity .7s ease; }
+.peta-live .peta-stage.ready canvas { opacity: 1; }
+.peta-live .peta-stage.ready img { opacity: 0; }
+.peta-live .peta-labels { display: block; position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+.pl {
+  position: absolute; left: 0; top: 0; white-space: nowrap; margin-top: -.55rem;
+  font-size: .8125rem; font-weight: 600; line-height: 1; padding: .42rem .6rem; border-radius: 2px;
+  background: var(--wine); color: var(--on); opacity: 0; transition: opacity .35s ease; will-change: transform;
+}
+.pl::after { content: ""; position: absolute; left: 50%; bottom: -5px; margin-left: -5px; border: 5px solid transparent; border-bottom: 0; border-top-color: var(--wine); }
+.pl.plan { background: var(--paper); color: var(--burg-ink); outline: 1.5px dashed var(--gold-deep); outline-offset: -1.5px; }
+.pl.plan::after { border-top-color: var(--gold-deep); }
+.pl.on { opacity: 1; }
+.peta-live .peta-card { position: absolute; z-index: 3; left: 0; right: 0; bottom: clamp(1rem, 4.5vh, 2.75rem); pointer-events: none; }
+.peta-live .peta-box {
+  max-width: 25.5rem; pointer-events: auto;
+  background: rgba(250, 246, 240, .94); border: 1px solid var(--rule); border-top: 3px solid var(--burg);
+  box-shadow: 0 18px 40px -22px rgba(42, 11, 18, .45); padding: 1.1rem 1.3rem 1.2rem;
+}
+@supports (backdrop-filter: blur(4px)) { .peta-live .peta-box { background: rgba(250, 246, 240, .86); backdrop-filter: blur(8px); } }
+.peta-live .peta-ticks { display: flex; gap: .4rem; margin-bottom: .85rem; }
+.peta-live .peta-ticks i { flex: 1; height: 3px; background: var(--rule); transition: background .3s ease; }
+.peta-live .peta-ticks i.on { background: var(--burg); }
+.peta-live .peta-steps { display: block; position: relative; margin-top: 0; }
+.peta-live .peta-steps > li { position: absolute; left: 0; right: 0; bottom: 0; border-top: 0; padding: 0; opacity: 0; transform: translateY(8px); transition: opacity .4s ease, transform .4s ease; pointer-events: none; }
+.peta-live .peta-steps > li.on { position: relative; opacity: 1; transform: none; pointer-events: auto; }
+.peta-live .peta-steps h3 { font-size: 1.375rem; }
+.peta-live .peta-steps .intro h3 { font-size: 1.75rem; }
+.peta-live .peta-steps p { color: var(--ink); opacity: .82; }
+.peta-live .peta-steps .only-live { display: inline; }
+.peta-live .aslinya figcaption { color: var(--ink); opacity: .78; }
+@media (max-width: 56rem) {
+  .peta-live .peta-box { max-width: none; padding: .9rem 1rem 1rem; }
+  .peta-live .peta-steps h3 { font-size: 1.1875rem; }
+  .peta-live .peta-steps .intro h3 { font-size: 1.4rem; }
+  .peta-live .peta-steps p { font-size: .9375rem; }
+  .peta-live .aslinya { display: none; }
+  .peta-head .meta .fig { display: none; }
+  .pl { font-size: .75rem; padding: .38rem .5rem; }
+}
 
 /* ===== Anatomy plate (wine) ===== */
 .dark { background: var(--wine); color: var(--on); }
@@ -313,17 +391,66 @@ h2, h3, .lead h1 { text-wrap: balance; }
     </div>
   </section>
 
-  <figure class="wrap photo">
-    <img src="/foto/suramadu-lanskap.jpg" width="2400" height="1604" alt="Jembatan Suramadu dengan dua pylon merahnya, dilihat dari pantai berlumpur saat air surut, dengan perahu nelayan di depannya" fetchpriority="high" decoding="async">
-    <figcaption>
-      <span>Jembatan Suramadu menghubungkan Surabaya, tempat ARZAK akan berkedudukan, dengan Madura, tempat usaha pertama kami berjalan sejak 2024.</span>
-      <span class="cr">Foto: Sakurai Midori, Wikimedia Commons, CC BY 3.0; dipotong dan warnanya disesuaikan</span>
-    </figcaption>
-  </figure>
+  <section class="peta" id="peta" aria-labelledby="peta-judul">
+    <div class="peta-track">
+      <div class="peta-pin">
+        <div class="wrap peta-top">
+          <div class="peta-head">
+            <h2 id="peta-judul">Peta ARZAK</h2>
+            <p class="meta"><span class="fig">Gambar 1, maket</span><a class="peta-skip" href="#asal">Lewati peta</a></p>
+          </div>
+        </div>
+        <div class="peta-stage">
+          <picture>
+            <source media="(max-width: 34rem)" srcset="/peta/peta-poster-hp.jpg" width="1260" height="1680">
+            <img src="/peta/peta-poster.jpg" width="2400" height="1200" alt="Maket peta: kota Surabaya dengan kantor ARZAK bergaris putus-putus, Jembatan Suramadu melintasi Selat Madura, Klinik Utama INTRO Dental di Bangkalan, dan petak terpisah berisi tiga rencana bergaris putus-putus." decoding="async">
+          </picture>
+          <canvas aria-hidden="true"></canvas>
+          <div class="peta-labels" aria-hidden="true"></div>
+        </div>
+        <div class="wrap peta-card">
+          <div class="peta-box">
+            <div class="peta-ticks" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+            <ol class="peta-steps">
+              <li class="intro on" data-i="0">
+                <h3>Dari tempat kedudukan sampai bagian yang belum digambar.</h3>
+                <p><span class="only-live">Gulir untuk menyeberang. </span>Bangunan padat sudah berdiri dan bukan milik ARZAK. Yang bergaris putus-putus emas adalah rencana ARZAK.</p>
+                <p class="legend"><span class="solid"><i></i>Sudah berdiri</span><span class="plan"><i></i>Rencana ARZAK</span></p>
+              </li>
+              <li data-i="1">
+                <p class="k">01 · Surabaya</p>
+                <h3>Tempat ARZAK akan berkedudukan.</h3>
+                <p>Kantornya kami gambar dengan garis putus-putus, karena PT Arzak Selalu Bersama masih dalam persiapan pendirian.</p>
+              </li>
+              <li data-i="2">
+                <p class="k">02 · Selat Madura</p>
+                <h3>Jembatan Suramadu, 5,4 kilometer.</h3>
+                <p>Penghubung tempat kedudukan ARZAK dengan Madura, tempat usaha pertama kami berjalan sejak 2024.</p>
+                <figure class="aslinya">
+                  <img src="/foto/suramadu-kecil.jpg" width="960" height="642" alt="Foto Jembatan Suramadu dengan dua pylon merahnya, dilihat dari pantai saat air surut" loading="lazy" decoding="async">
+                  <figcaption>Jembatan aslinya. Foto: Sakurai Midori, Wikimedia Commons, CC BY 3.0, dipotong dan warnanya disesuaikan.</figcaption>
+                </figure>
+              </li>
+              <li data-i="3">
+                <p class="k">03 · Bangkalan</p>
+                <h3>Klinik Utama INTRO Dental, milik badan usahanya sendiri.</h3>
+                <p>Usaha pertama para pendiri, dibuka pada 2024 dan berjalan terpisah dari ARZAK.</p>
+              </li>
+              <li data-i="4">
+                <p class="k">04 · Berikutnya</p>
+                <h3>Bagian peta yang belum digambar.</h3>
+                <p>Rencananya setelah akta terbit: mendirikan atau membeli usaha yang sejalan, memiliki gedung dan peralatan, dan menyiapkan Nata Arah. Usaha berikutnya baru dibuka ketika standar usaha sebelumnya siap disalin.</p>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <section class="dark anat" id="asal" aria-labelledby="anat-judul">
     <div class="wrap">
-      <div class="anat-head"><h2 id="anat-judul">Anatomi tanda ARZAK</h2><span>Gambar 1</span></div>
+      <div class="anat-head"><h2 id="anat-judul">Anatomi tanda ARZAK</h2><span>Gambar 2</span></div>
       <div class="anat-grid">
         <figure><svg viewBox="-34 -16 196 140" role="img" aria-label="Logo ARZAK dengan empat bagian bernomor: kaki kiri, kaki kanan, puncak, dan lengkung emas" xmlns="http://www.w3.org/2000/svg"><g class="mark-art">
 <defs>
@@ -410,7 +537,7 @@ h2, h3, .lead h1 { text-wrap: balance; }
     <div class="wrap">
       <p class="kicker">Prinsip</p>
       <h2 id="prinsip-judul" class="big">Pelan, supaya kepercayaan terjaga.</h2>
-      <p class="big-note">Tempat baru hanya dibuka setelah standar di tempat sebelumnya terbukti, dan setiap cabang minimal setara dengan yang pertama.</p>
+      <p class="big-note">Tempat baru dibuka setelah standar di tempat sebelumnya terbukti, dan harus minimal setara dengan yang pertama.</p>
       <div class="two">
         <div><h3>Sistem, bukan satu orang</h3><p>Pekerjaan rutin dipegang jabatan dan prosedur tertulis. Teknologi membantu mencatat dan mengukur; keputusan klinis tetap di tangan tenaga kesehatan.</p></div>
         <div><h3>Data tetap di tempatnya</h3><p>Data pasien milik klinik dan tidak dibagikan ke ARZAK. Setiap usaha menjaga data pelanggannya sendiri sesuai aturan pelindungan data pribadi.</p></div>
@@ -423,7 +550,7 @@ h2, h3, .lead h1 { text-wrap: balance; }
     <div class="years">
       <div><b>2024</b><p>Klinik Utama INTRO Dental dibuka di Bangkalan.</p></div>
       <div><b>2026</b><p>Arah grup dan peran perusahaan induk dirumuskan.</p></div>
-      <div class="later"><b>Berikutnya</b><p>Pendirian PT Arzak Selalu Bersama, lalu usaha atau cabang berikutnya ketika standarnya siap disalin.</p></div>
+      <div class="later"><b>Berikutnya</b><p>Pendirian PT Arzak Selalu Bersama, yang kini dalam persiapan pendirian, lalu usaha berikutnya ketika standarnya siap disalin.</p></div>
     </div>
   </section>
 </main>
@@ -460,7 +587,7 @@ h2, h3, .lead h1 { text-wrap: balance; }
       <dl class="notes"><dt>Korespondensi</dt>
           <dd>Untuk bank, notaris, calon mitra atau target pengambilalihan, serta calon dokter dan staf senior. Alamat korespondensi resmi dicantumkan di sini setelah badan hukum berdiri.</dd><dt>Pasien</dt>
           <dd>Untuk perawatan gigi dan janji temu, kunjungi <a href="https://introdental.id" rel="noopener">introdental.id</a>.</dd><dt>Foto dan huruf</dt>
-          <dd>Jembatan Suramadu: Sakurai Midori, Wikimedia Commons, <a href="https://creativecommons.org/licenses/by/3.0/" rel="noopener license">CC BY 3.0</a>, dipotong dan warnanya disesuaikan. Ruang klinik: Klinik Utama INTRO Dental. Huruf Plus Jakarta Sans dan Instrument Serif, SIL Open Font License.</dd></dl>
+          <dd>Jembatan Suramadu: Sakurai Midori, Wikimedia Commons, <a href="https://creativecommons.org/licenses/by/3.0/" rel="noopener license">CC BY 3.0</a>, dipotong dan warnanya disesuaikan. Ruang klinik: Klinik Utama INTRO Dental. Maket peta digambar dengan kode memakai three.js, lisensi MIT. Huruf Plus Jakarta Sans dan Instrument Serif, SIL Open Font License.</dd></dl>
     </div>
     <div class="legal"><span>&copy; 2026 ARZAK</span><span>Profil perusahaan, bukan penawaran efek atau ajakan berinvestasi.</span></div>
   </div>
@@ -476,7 +603,7 @@ h2, h3, .lead h1 { text-wrap: balance; }
     const spy = new IntersectionObserver((es) => {
       es.forEach(e => { if (e.isIntersecting) { links.forEach(a => a.removeAttribute('aria-current')); const a = map.get(e.target.id); if (a) a.setAttribute('aria-current', 'location'); } });
     }, { rootMargin: '-45% 0px -50% 0px' });
-    ['judul', ...map.keys(), 'prinsip', 'kronologi'].forEach(id => { const el = document.getElementById(id); if (el) spy.observe(el); });
+    ['judul', 'peta', ...map.keys(), 'prinsip', 'kronologi'].forEach(id => { const el = document.getElementById(id); if (el) spy.observe(el); });
   }
 })();
 (() => {
@@ -485,6 +612,41 @@ h2, h3, .lead h1 { text-wrap: balance; }
   s.classList.add('armed');
   const io = new IntersectionObserver((es) => { es.forEach(e => { if (e.isIntersecting) { s.classList.add('on'); io.disconnect(); } }); }, { threshold: .35 });
   io.observe(s);
+})();
+(() => {
+  const root = document.documentElement, track = document.querySelector('.peta-track');
+  if (!track || !root.classList.contains('peta-live')) return;
+  const pin = track.querySelector('.peta-pin'), bar = document.querySelector('.bar');
+  const steps = [...track.querySelectorAll('.peta-steps > li')], ticks = [...track.querySelectorAll('.peta-ticks i')];
+  const N = steps.length - 1;
+  let cur = -1, barH = 0, queued = false;
+  const measure = () => { barH = bar ? bar.offsetHeight : 0; root.style.setProperty('--bar-h', barH + 'px'); };
+  function update() {
+    queued = false;
+    const span = Math.max(1, track.offsetHeight - pin.offsetHeight);
+    const p = Math.min(1, Math.max(0, (barH - track.getBoundingClientRect().top) / span));
+    const s = p * N, i = Math.round(s);
+    track.dataset.s = s.toFixed(4);
+    if (i !== cur) {
+      cur = i; track.dataset.i = i;
+      steps.forEach((li, k) => li.classList.toggle('on', k === i));
+      ticks.forEach((t, k) => t.classList.toggle('on', k < i));
+    }
+  }
+  const q = () => { if (!queued) { queued = true; requestAnimationFrame(update); } };
+  measure(); update();
+  addEventListener('scroll', q, { passive: true });
+  addEventListener('resize', () => { measure(); q(); });
+})();
+</script>
+<script>
+/* Modul 3D baru diunduh saat peta mendekati layar. Bila gagal, kembali ke gambar diam tanpa membuat halaman melompat. */
+(() => {
+  const root = document.documentElement, track = document.querySelector('.peta-track');
+  if (!track || !root.classList.contains('peta-live')) return;
+  const fail = () => { const y0 = track.getBoundingClientRect().top; root.classList.remove('peta-live'); if (y0 < 0) scrollBy(0, track.getBoundingClientRect().top - y0); };
+  const io = new IntersectionObserver((es) => { if (es.some((e) => e.isIntersecting)) { io.disconnect(); import('/peta/peta.js?v=2').catch(fail); } }, { rootMargin: '100% 0px' });
+  io.observe(track);
 })();
 </script>
 </body>

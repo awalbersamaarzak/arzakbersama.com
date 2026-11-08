@@ -3,9 +3,9 @@
 ## A. Aturan ARZAK (wajib; mengalahkan aturan lain di file ini)
 
 ### Konteks repo
-- Fungsi repo: situs profil perusahaan induk ARZAK di arzakbersama.com, gaya "Arsip Keluarga". Satu halaman statis (HTML + CSS + sedikit JS dalam satu file), ditayangkan lewat GitHub Pages dari branch `main`, tanpa build.
+- Fungsi repo: situs profil perusahaan induk ARZAK di arzakbersama.com, gaya "Arsip Keluarga". Satu halaman statis (HTML + CSS + sedikit JS dalam satu file), ditayangkan lewat GitHub Pages dari branch `main`, tanpa build. Pengecualian: peta 3D di `peta/` (sumber `peta/src/peta.js`, dibundel dengan esbuild; langkahnya di README).
 - Pemilik situs: ARZAK — PT Arzak Selalu Bersama, dalam persiapan pendirian (nama sebelumnya: PT Mulai Bersama Arzak).
-- Perintah tes: tidak ada runner tes. Verifikasi = buka `index.html` di browser pada lebar 390 px dan 1440 px, pastikan tidak ada scroll horizontal, dan periksa `404.html`.
+- Perintah tes: tidak ada runner tes. Verifikasi = buka `index.html` di browser pada lebar 390 px dan 1440 px, pastikan tidak ada scroll horizontal, gulir seluruh Peta ARZAK, periksa juga dengan "kurangi gerakan" (prefers-reduced-motion) menyala, dan periksa `404.html`.
 - Penyetuju perubahan: Owner.
 
 ### Aturan

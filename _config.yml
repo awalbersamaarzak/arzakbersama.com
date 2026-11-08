@@ -2,3 +2,4 @@
 exclude:
   - CLAUDE.md
   - README.md
+  - peta/src
