@@ -5,7 +5,7 @@ import {
   WebGLRenderer, Scene, OrthographicCamera, Group, Mesh, InstancedMesh,
   BoxGeometry, CylinderGeometry, ConeGeometry, ExtrudeGeometry, PlaneGeometry, Shape,
   MeshLambertMaterial, MeshBasicMaterial, LineBasicMaterial, LineSegments, BufferGeometry, Float32BufferAttribute,
-  HemisphereLight, DirectionalLight, Vector3, Color, Matrix4, CanvasTexture, RepeatWrapping, SRGBColorSpace, PCFSoftShadowMap
+  HemisphereLight, DirectionalLight, Vector3, Vector2, Raycaster, Color, Matrix4, CanvasTexture, RepeatWrapping, SRGBColorSpace, PCFSoftShadowMap
 } from 'three';
 
 const stage = document.querySelector('.peta-stage');
@@ -295,14 +295,19 @@ function start() {
     ['Selat Madura', [-0.9, 0.2, 9.4], [0]],
     ['Jembatan Suramadu', [A.x + dirB.x * 0.505, PH + 0.5, A.z + dirB.z * 0.505], [2]],
     ['Bangkalan, Madura', [14.2, 1.3, -9.8], [0, 3]],
-    ['Klinik Utama INTRO Dental', [CL.x, G + 2.6, CL.z], [3]],
+    ['Klinik Utama INTRO Dental', [CL.x, G + 2.6, CL.z], [3], 0, 'https://introdental.id'],
     ['Rencana', [31, G + 0.2, 5.2], [0], 1],
-    ['Nata Arah', [PLANS.nata.x, G + PLANS.nata.h + 0.2, PLANS.nata.z], [4], 1],
+    ['Nata Arah', [PLANS.nata.x, G + PLANS.nata.h + 0.2, PLANS.nata.z], [4], 1, 'https://nataarah.id'],
     ['Gedung dan peralatan', [PLANS.gedung.x, G + PLANS.gedung.h + 0.2, PLANS.gedung.z], [4], 1],
     ['Usaha berikutnya', [PLANS.usaha.x, G + PLANS.usaha.h + 0.2, PLANS.usaha.z], [4], 1]
-  ].map(([t, p, steps, plan]) => {
-    const el = document.createElement('span'); el.className = 'pl' + (plan ? ' plan' : ''); el.textContent = t; layer.appendChild(el);
-    return { el, p: new Vector3(...p), steps };
+  ].map(([t, p, steps, plan, url]) => {
+    // label bertaut membuka situs usahanya di tab baru; tautan yang bisa dijangkau keyboard ada di kartu keterangan
+    const el = document.createElement(url ? 'a' : 'span');
+    el.className = 'pl' + (plan ? ' plan' : '') + (url ? ' link' : '');
+    el.textContent = url ? t + ' \u2197' : t;
+    if (url) { el.href = url; el.target = '_blank'; el.rel = 'noopener'; el.tabIndex = -1; }
+    layer.appendChild(el);
+    return { el, p: new Vector3(...p), steps, url };
   });
 
   // ---------- kamera ----------
@@ -344,7 +349,7 @@ function start() {
   // ---------- loop ----------
   // Kanvas hanya digambar ulang saat kamera bergerak atau sesaat setelah pengunjung menggulir.
   // Mobil dan perahu berhenti 4 detik setelah gulir terakhir, jadi tidak ada gerak terus-menerus (WCAG 2.2.2).
-  let last = performance.now(), active = 0, shown = false, lastS = -1, wake = -1e9, dirty = true;
+  let last = performance.now(), active = 0, shown = false, lastS = -1, wake = -1e9, dirty = true, hovered = null;
   function frame(now) {
     const dt = Math.min(0.05, (now - last) / 1000); last = now;
     const s = POSTER ? 0 : parseFloat(track.dataset.s || '0');
@@ -375,7 +380,7 @@ function start() {
     const placed = [];
     for (const l of LABELS) {
       pv.copy(l.p).project(cam);
-      const on = l.steps.includes(active) && pv.x > -0.98 && pv.x < 0.98 && pv.y > -0.9 && pv.y < 0.86;
+      const on = (l.steps.includes(active) || (!!l.url && l.url === hovered)) && pv.x > -0.98 && pv.x < 0.98 && pv.y > -0.9 && pv.y < 0.86;
       if (on) {
         if (!l.w) { l.w = l.el.offsetWidth; l.h = l.el.offsetHeight; }
         let x = Math.min(W - l.w / 2 - 8, Math.max(l.w / 2 + 8, (pv.x + 1) / 2 * W)), y = (1 - pv.y) / 2 * H;
@@ -399,6 +404,31 @@ function start() {
   resize();
   if (POSTER) { requestAnimationFrame(frame); return; }
   new ResizeObserver(() => { resize(); }).observe(stage);
+
+  // ---------- klinik dan Nata Arah bisa diklik: membuka situsnya di tab baru ----------
+  const hits = [
+    { url: 'https://introdental.id', x: CL.x, z: CL.z, w: 2.7, h: 2.5, d: 2.0 },
+    { url: 'https://nataarah.id', ...PLANS.nata }
+  ].map((b) => {
+    const m = new Mesh(unit, new MeshBasicMaterial({ visible: false }));
+    m.scale.set(b.w + 0.3, b.h + 0.3, b.d + 0.3); m.position.set(b.x, G + b.h / 2, b.z); m.userData.url = b.url;
+    scene.add(m); m.updateMatrixWorld(); return m;
+  });
+  const ray = new Raycaster(), ndc = new Vector2();
+  const pick = (e) => {
+    const r = canvas.getBoundingClientRect();
+    ndc.set(((e.clientX - r.left) / r.width) * 2 - 1, -((e.clientY - r.top) / r.height) * 2 + 1);
+    ray.setFromCamera(ndc, cam);
+    const h = ray.intersectObjects(hits, false)[0];
+    return h ? h.object.userData.url : null;
+  };
+  canvas.addEventListener('pointermove', (e) => {
+    if (e.pointerType !== 'mouse') return;
+    const u = pick(e);
+    if (u !== hovered) { hovered = u; canvas.style.cursor = u ? 'pointer' : ''; dirty = true; }
+  });
+  canvas.addEventListener('pointerleave', () => { if (hovered) { hovered = null; canvas.style.cursor = ''; dirty = true; } });
+  canvas.addEventListener('click', (e) => { const u = pick(e); if (u) window.open(u, '_blank', 'noopener'); });
   let running = false;
   new IntersectionObserver(([e]) => {
     if (e.isIntersecting && !running) { running = true; last = performance.now(); renderer.setAnimationLoop(frame); }
