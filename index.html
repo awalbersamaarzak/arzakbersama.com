@@ -38,6 +38,7 @@ if (!matchMedia('(prefers-reduced-motion: reduce)').matches && 'WebGLRenderingCo
     {"@type": "Person", "name": "drg. Rizqie Widira Arvianti, Sp.Ort"},
     {"@type": "Person", "name": "drg. Fakhma Zakki Ramadhani, Sp.Ort"}
   ],
+  "email": "awal@arzakbersama.com",
   "address": {"@type": "PostalAddress", "addressLocality": "Surabaya", "addressRegion": "Jawa Timur", "addressCountry": "ID"}
 }
 </script>
@@ -169,6 +170,9 @@ h2, h3, .lead h1 { text-wrap: balance; }
 .peta-steps .intro h3 { font-family: var(--serif); font-weight: 400; font-size: clamp(1.5rem, 2.6vw, 2.1rem); letter-spacing: 0; line-height: 1.1; }
 .peta-steps p { margin-top: .4rem; color: var(--muted); font-size: .9875rem; line-height: 1.55; }
 .peta-steps .only-live { display: none; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; }
+.peta-steps .visit { margin-top: .6rem; }
+.peta-steps .visit a { font-weight: 700; color: var(--burg-ink); }
 .legend { display: flex; flex-wrap: wrap; gap: .35rem 1.25rem; margin-top: .75rem; font-size: .875rem; color: var(--ink); }
 .legend span { display: inline-flex; align-items: center; gap: .5rem; }
 .legend i { width: 1.1rem; height: .8rem; display: inline-block; }
@@ -208,6 +212,10 @@ h2, h3, .lead h1 { text-wrap: balance; }
 .pl.plan { background: var(--paper); color: var(--burg-ink); outline: 1.5px dashed var(--gold-deep); outline-offset: -1.5px; }
 .pl.plan::after { border-top-color: var(--gold-deep); }
 .pl.on { opacity: 1; }
+.pl.link { text-decoration: none; cursor: pointer; }
+.pl.link.on { pointer-events: auto; }
+.pl.link:hover { background: var(--burg); }
+.pl.plan.link:hover { background: var(--paper-2); }
 .peta-live .peta-card { position: absolute; z-index: 3; left: 0; right: 0; bottom: clamp(1rem, 4.5vh, 2.75rem); pointer-events: none; }
 .peta-live .peta-box {
   max-width: 25.5rem; pointer-events: auto;
@@ -414,8 +422,8 @@ h2, h3, .lead h1 { text-wrap: balance; }
             <ol class="peta-steps">
               <li class="intro on" data-i="0">
                 <h3>Dari tempat kedudukan sampai bagian yang belum digambar.</h3>
-                <p><span class="only-live">Gulir untuk menyeberang. </span>Bangunan padat sudah berdiri dan bukan milik ARZAK. Yang bergaris putus-putus emas adalah rencana ARZAK.</p>
-                <p class="legend"><span class="solid"><i></i>Sudah berdiri</span><span class="plan"><i></i>Rencana ARZAK</span></p>
+                <p><span class="only-live">Gulir untuk menyeberang. </span>Bangunan padat sudah berdiri; yang bergaris putus-putus emas masih rencana.<span class="only-live"> Klinik dan Nata Arah bisa diklik untuk membuka situsnya.</span></p>
+                <p class="legend"><span class="solid"><i></i>Sudah berdiri</span><span class="plan"><i></i>Rencana</span></p>
               </li>
               <li data-i="1">
                 <p class="k">01 · Surabaya</p>
@@ -433,13 +441,15 @@ h2, h3, .lead h1 { text-wrap: balance; }
               </li>
               <li data-i="3">
                 <p class="k">03 · Bangkalan</p>
-                <h3>Klinik Utama INTRO Dental, milik badan usahanya sendiri.</h3>
-                <p>Usaha pertama para pendiri, dibuka pada 2024 dan berjalan terpisah dari ARZAK.</p>
+                <h3>Klinik Utama INTRO Dental.</h3>
+                <p>Usaha pertama keluarga ARZAK, dibuka pada 2024 dan dijalankan oleh badan usahanya sendiri.</p>
+                <p class="visit"><a href="https://introdental.id" target="_blank" rel="noopener">Buka introdental.id<span class="sr"> (tab baru)</span> ↗</a></p>
               </li>
               <li data-i="4">
                 <p class="k">04 · Berikutnya</p>
                 <h3>Bagian peta yang belum digambar.</h3>
-                <p>Rencananya setelah akta terbit: mendirikan atau membeli usaha yang sejalan, memiliki gedung dan peralatan, dan menyiapkan Nata Arah. Usaha berikutnya baru dibuka ketika standar usaha sebelumnya siap disalin.</p>
+                <p>Nata Arah, mitra pertumbuhan untuk pemilik klinik, sedang disiapkan badan usahanya. Setelah akta ARZAK terbit, rencananya mendirikan atau membeli usaha yang sejalan, serta memiliki gedung dan peralatan.</p>
+                <p class="visit"><a href="https://nataarah.id" target="_blank" rel="noopener">Buka nataarah.id<span class="sr"> (tab baru)</span> ↗</a></p>
               </li>
             </ol>
           </div>
@@ -509,7 +519,7 @@ h2, h3, .lead h1 { text-wrap: balance; }
 
   <section class="wrap section essay" id="usaha-pertama" aria-labelledby="usaha-judul">
     <div class="sec-head">
-      <p class="kicker">Usaha pertama para pendiri</p>
+      <p class="kicker">Usaha pertama keluarga ARZAK</p>
       <h2 id="usaha-judul">Klinik Utama INTRO Dental, Bangkalan</h2>
     </div>
     <div class="essay-grid">
@@ -518,7 +528,7 @@ h2, h3, .lead h1 { text-wrap: balance; }
         <figcaption>Ruang tunggu Klinik Utama INTRO Dental. Foto: INTRO Dental.</figcaption>
       </figure>
       <div class="side">
-        <p class="drop">Klinik ini kami buka di Bangkalan pada 2024. Ia berjalan di bawah badan usahanya sendiri, terpisah dari ARZAK. Di sinilah kami pertama kali menguji cara kerja yang ingin kami bawa ke usaha berikutnya.</p>
+        <p class="drop">Klinik ini kami buka di Bangkalan pada 2024 dan dijalankan oleh badan usahanya sendiri. Di sinilah kami pertama kali menguji cara kerja yang ingin kami bawa ke usaha berikutnya.</p>
         <p>Usaha baru harus lolos tiga pertanyaan lebih dulu: bisakah ia dijalankan dengan standar yang sama tanpa harus kami tunggui setiap hari, apakah pembukuannya jelas, dan apakah kepercayaan pelanggannya layak dijaga.</p>
         <figure class="small">
           <img src="/foto/intro-ruang-potong.jpg" width="1800" height="1200" alt="Ruang perawatan dengan dua dental unit dan monitor di dinding" loading="lazy" decoding="async">
@@ -529,7 +539,7 @@ h2, h3, .lead h1 { text-wrap: balance; }
     </div>
     <div class="fields">
       <h3>Bidang yang terbuka</h3>
-      <p>Layanan kesehatan; pemasaran dan produksi kreatif, lewat Nata Arah yang sedang dipersiapkan; gedung dan peralatan; serta usaha lain yang lolos tiga pertanyaan di atas.</p>
+      <p>Layanan kesehatan; pertumbuhan, strategi, dan kreatif untuk klinik lewat <a class="go" href="https://nataarah.id" rel="noopener">Nata Arah</a>, yang badan usahanya sedang dipersiapkan; gedung dan peralatan; serta usaha lain yang lolos tiga pertanyaan di atas.</p>
     </div>
   </section>
 
@@ -585,8 +595,8 @@ h2, h3, .lead h1 { text-wrap: balance; }
           <dd>PT Arzak Selalu Bersama sedang dalam persiapan pendirian dan akan berkedudukan di Surabaya, Jawa Timur.</dd><dt>Bukan penawaran</dt>
           <dd>Halaman ini adalah profil perusahaan. ARZAK tidak menawarkan saham dan tidak menghimpun dana dari masyarakat.</dd></dl>
       <dl class="notes"><dt>Korespondensi</dt>
-          <dd>Untuk bank, notaris, calon mitra atau target pengambilalihan, serta calon dokter dan staf senior. Alamat korespondensi resmi dicantumkan di sini setelah badan hukum berdiri.</dd><dt>Pasien</dt>
-          <dd>Untuk perawatan gigi dan janji temu, kunjungi <a href="https://introdental.id" rel="noopener">introdental.id</a>.</dd><dt>Foto dan huruf</dt>
+          <dd>Untuk bank, notaris, calon mitra atau target pengambilalihan, serta calon dokter dan staf senior: <a href="mailto:awal@arzakbersama.com">awal@arzakbersama.com</a></dd><dt>Situs usaha kami</dt>
+          <dd>Perawatan gigi dan janji temu: <a href="https://introdental.id" rel="noopener">introdental.id</a>. Pertumbuhan klinik: <a href="https://nataarah.id" rel="noopener">nataarah.id</a>.</dd><dt>Foto dan huruf</dt>
           <dd>Jembatan Suramadu: Sakurai Midori, Wikimedia Commons, <a href="https://creativecommons.org/licenses/by/3.0/" rel="noopener license">CC BY 3.0</a>, dipotong dan warnanya disesuaikan. Ruang klinik: Klinik Utama INTRO Dental. Maket peta digambar dengan kode memakai three.js, lisensi MIT. Huruf Plus Jakarta Sans dan Instrument Serif, SIL Open Font License.</dd></dl>
     </div>
     <div class="legal"><span>&copy; 2026 ARZAK</span><span>Profil perusahaan, bukan penawaran efek atau ajakan berinvestasi.</span></div>
@@ -645,7 +655,7 @@ h2, h3, .lead h1 { text-wrap: balance; }
   const root = document.documentElement, track = document.querySelector('.peta-track');
   if (!track || !root.classList.contains('peta-live')) return;
   const fail = () => { const y0 = track.getBoundingClientRect().top; root.classList.remove('peta-live'); if (y0 < 0) scrollBy(0, track.getBoundingClientRect().top - y0); };
-  const io = new IntersectionObserver((es) => { if (es.some((e) => e.isIntersecting)) { io.disconnect(); import('/peta/peta.js?v=2').catch(fail); } }, { rootMargin: '100% 0px' });
+  const io = new IntersectionObserver((es) => { if (es.some((e) => e.isIntersecting)) { io.disconnect(); import('/peta/peta.js?v=3').catch(fail); } }, { rootMargin: '100% 0px' });
   io.observe(track);
 })();
 </script>
