@@ -1,0 +1,24 @@
+<!doctype html><html lang="id"><head><meta charset="utf-8">
+<style>
+@font-face { font-family: "Plus Jakarta Sans"; src: url("/plus-jakarta-sans.woff2") format("woff2"); font-weight: 200 800; }
+:root { --paper:#F7F1EA; --paper-2:#EFE5D8; --wine:#2A0B12; --on:#F7EFE7; --burg-ink:#5A1724; --gold-deep:#85621F; }
+html,body{margin:0;background:var(--paper);font-family:"Plus Jakarta Sans",sans-serif}
+.peta-track{width:var(--w);height:var(--h)}
+.peta-stage{position:relative;width:var(--w);height:var(--h);overflow:hidden;background: radial-gradient(110% 85% at 55% 42%, #FCF8F3 0%, var(--paper) 46%, var(--paper-2) 100%);}
+canvas{position:absolute;inset:0;width:100%;height:100%}
+.peta-labels{position:absolute;inset:0}
+.pl{position:absolute;left:0;top:0;white-space:nowrap;margin-top:-.55rem;font-size:.8125rem;font-weight:600;line-height:1;padding:.42rem .6rem;border-radius:2px;background:var(--wine);color:var(--on);opacity:0}
+.pl::after{content:"";position:absolute;left:50%;bottom:-5px;margin-left:-5px;border:5px solid transparent;border-bottom:0;border-top-color:var(--wine)}
+.pl.plan{background:var(--paper);color:var(--burg-ink);outline:1.5px dashed var(--gold-deep);outline-offset:-1.5px}
+.pl.plan::after{border-top-color:var(--gold-deep)}
+.pl.on{opacity:1}
+</style></head><body>
+<script>
+// ukuran poster: ?poster (2400×1200 pada skala 2×) atau ?poster&hp (1260×1680 pada skala 3×)
+const hp = new URLSearchParams(location.search).has('hp');
+document.documentElement.style.setProperty('--w', hp ? '420px' : '1200px');
+document.documentElement.style.setProperty('--h', hp ? '560px' : '600px');
+</script>
+<div class="peta-track"><div class="peta-stage"><canvas></canvas><div class="peta-labels"></div></div></div>
+<script type="module" src="/peta/peta.js?poster"></script>
+</body></html>
